@@ -22,7 +22,17 @@ public class ResourceController : MonoBehaviour
     {
     }
 
-    public bool UseResources(int woodNeeded, int goldNeeded, int foodNeeded)
+    public bool HasEnoughResources(int woodNeeded, int goldNeeded, int foodNeeded)
+    {
+        if (woodNeeded <= woodStoredAmount && goldNeeded <= goldStoredAmount && foodNeeded <= foodStoredAmount)
+        {
+            UpdateResourceUI();
+            return true;
+        }
+        return false;
+    }
+
+    public void UseResources(int woodNeeded, int goldNeeded, int foodNeeded)
     {
         if (woodNeeded <= woodStoredAmount && goldNeeded <= goldStoredAmount && foodNeeded <= foodStoredAmount)
         {
@@ -30,9 +40,11 @@ public class ResourceController : MonoBehaviour
             goldStoredAmount -= goldNeeded;
             foodStoredAmount -= foodNeeded;
             UpdateResourceUI();
-            return true;
         }
-        return false;
+        else
+        {
+            throw new System.Exception("Not enough resources but we were too late to stop it...");
+        }
     }
 
     public void UpdateResourceUI()

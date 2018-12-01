@@ -9,6 +9,7 @@ public class godController : MonoBehaviour {
     public float favorTimeStep;
     private float favorTimer;
     public ResourceController resourceController;
+    public PopulationController populationController;
 
     public float happyLevel;
     public float notImpressedLevel;
@@ -86,7 +87,7 @@ public class godController : MonoBehaviour {
 
     private void CalculateFavorGain()
     {
-        float prosperity = (resourceController.foodStoredAmount + resourceController.woodStoredAmount + resourceController.goldStoredAmount)/3;
+        float prosperity = (resourceController.foodStoredAmount + resourceController.woodStoredAmount + resourceController.goldStoredAmount + populationController.amountOfVillagers) /4;
 
         favorGain = -2/(1 + Mathf.Exp(-prosperity/3)) - 2/2;
     }
