@@ -8,8 +8,14 @@ public class BuildMenuIcon : MonoBehaviour {
     public int iconID;
     public GameObject prefabToSpawn;
     public BuildMenuController buildMenuController;
+    public ResourceController resourceController;
     private bool holdingBuilding;
     private GameObject heldBuilding;
+
+    [Header("Cost of the building")]
+    public int woodCost;
+    public int goldCost;
+    public int foodCost;
 
     public Camera currentCamera;
     public CameraMove cameraMove;
@@ -56,13 +62,19 @@ public class BuildMenuIcon : MonoBehaviour {
 
         }
     }
-
     public void OnPointerDown(PointerEventData eventData)
     {
-        heldBuilding = buildMenuController.SpawnSelectedBuilding(iconID);
-        boxCollider = heldBuilding.GetComponent<BoxCollider2D>();
-        holdingBuilding = true;
-        cameraMove.CanMove = false;
+        if (resourceController.UseResources(woodCost, goldCost, foodCost))
+        {
+            heldBuilding = buildMenuController.SpawnSelectedBuilding(iconID);
+            boxCollider = heldBuilding.GetComponent<BoxCollider2D>();
+            holdingBuilding = true;
+            cameraMove.CanMove = false;
+        }
+        else
+        {
+            cameraMove.CanMove = false;
+        }
     }
 
     public void OnPointerUp(PointerEventData eventData)

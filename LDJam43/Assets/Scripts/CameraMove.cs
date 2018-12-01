@@ -16,7 +16,7 @@ public class CameraMove : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (!EventSystem.current.IsPointerOverGameObject() && Input.GetMouseButton(0) && CanMove)
+        if (hasClicked || (!EventSystem.current.IsPointerOverGameObject() && Input.GetMouseButton(0) && CanMove))
         {
             if (hasClicked)
             {
@@ -30,7 +30,7 @@ public class CameraMove : MonoBehaviour {
             }
         }
 
-        if (CanMove && Input.GetMouseButtonUp(0))
+        if (CanMove && Input.GetMouseButtonUp(0) || hasClicked && Input.GetMouseButtonUp(0))
         {
             lastMousePosition = Vector3.zero;
             hasClicked = false;
