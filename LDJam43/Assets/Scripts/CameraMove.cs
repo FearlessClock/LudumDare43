@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class CameraMove : MonoBehaviour {
     public float sensitivity;
@@ -8,12 +9,11 @@ public class CameraMove : MonoBehaviour {
     private bool hasClicked;
 	// Use this for initialization
 	void Start () {
-		
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetMouseButton(0))
+        if (!EventSystem.current.IsPointerOverGameObject() && Input.GetMouseButton(0))
         {
             if (hasClicked)
             {
