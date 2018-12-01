@@ -41,4 +41,12 @@ public class ResourceController : MonoBehaviour
         goldUI.text = goldStoredAmount.ToString();
         foodUI.text = foodStoredAmount.ToString();
     }
+
+    public void AddResources(int wood, int gold, int food)
+    {
+        woodStoredAmount += wood;
+        goldStoredAmount += gold;
+        foodStoredAmount += food;
+        UpdateResourceUI();
+    }
 }

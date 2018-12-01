@@ -196,8 +196,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iconID: 0
-  prefabToSpawn: {fileID: 1052719742590324, guid: 5ad9111b8e124234c97eea28908bf652,
-    type: 2}
   buildMenuController: {fileID: 741245215}
   resourceController: {fileID: 558808061}
   woodCost: 10
@@ -462,8 +460,8 @@ MonoBehaviour:
   woodStoredAmount: 354
   goldStoredAmount: 152
   foodStoredAmount: 55
-  woodUI: {fileID: 1149767098}
-  goldUI: {fileID: 1928076829}
+  woodUI: {fileID: 1928076829}
+  goldUI: {fileID: 1149767098}
   foodUI: {fileID: 557400148}
 --- !u!1 &660181461
 GameObject:
@@ -548,8 +546,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iconID: 5
-  prefabToSpawn: {fileID: 1764769946589218, guid: 7974c6e7e3bfd1c42bbe9d764d4ee6ca,
-    type: 2}
   buildMenuController: {fileID: 741245215}
   resourceController: {fileID: 558808061}
   woodCost: 10
@@ -772,9 +768,9 @@ MonoBehaviour:
   buildings:
   - {fileID: 1052719742590324, guid: 5ad9111b8e124234c97eea28908bf652, type: 2}
   - {fileID: 1764769946589218, guid: 7974c6e7e3bfd1c42bbe9d764d4ee6ca, type: 2}
-  - {fileID: 1764769946589218, guid: 7974c6e7e3bfd1c42bbe9d764d4ee6ca, type: 2}
-  - {fileID: 1764769946589218, guid: 7974c6e7e3bfd1c42bbe9d764d4ee6ca, type: 2}
-  - {fileID: 1764769946589218, guid: 7974c6e7e3bfd1c42bbe9d764d4ee6ca, type: 2}
+  - {fileID: 1948809191276828, guid: 92e2fb684b5821247a5a329cb66fd1d1, type: 2}
+  - {fileID: 1521515577202704, guid: ebf84da0f2e4a0f41809402a398feadd, type: 2}
+  - {fileID: 1498760185069840, guid: 2b76e883b68fd8040a8c30d8f00c1fc4, type: 2}
   - {fileID: 1764769946589218, guid: 7974c6e7e3bfd1c42bbe9d764d4ee6ca, type: 2}
 --- !u!114 &741245216
 MonoBehaviour:
@@ -807,7 +803,7 @@ GameObject:
   - component: {fileID: 765844203}
   - component: {fileID: 765844202}
   m_Layer: 5
-  m_Name: Resource (2)
+  m_Name: FoodResource (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -973,8 +969,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iconID: 1
-  prefabToSpawn: {fileID: 1764769946589218, guid: 7974c6e7e3bfd1c42bbe9d764d4ee6ca,
-    type: 2}
   buildMenuController: {fileID: 741245215}
   resourceController: {fileID: 558808061}
   woodCost: 10
@@ -1010,7 +1004,7 @@ GameObject:
   - component: {fileID: 794356698}
   - component: {fileID: 794356697}
   m_Layer: 5
-  m_Name: Resource (1)
+  m_Name: WoodResource (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1269,7 +1263,7 @@ GameObject:
   - component: {fileID: 1084211048}
   - component: {fileID: 1084211049}
   m_Layer: 5
-  m_Name: Town hall (2)
+  m_Name: GoldMine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1312,7 +1306,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 75c881db697d9f14285337e1c67bf386, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2985d110705d26041a8d02729535487a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1339,8 +1333,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iconID: 3
-  prefabToSpawn: {fileID: 1764769946589218, guid: 7974c6e7e3bfd1c42bbe9d764d4ee6ca,
-    type: 2}
   buildMenuController: {fileID: 741245215}
   resourceController: {fileID: 558808061}
   woodCost: 10
@@ -1376,7 +1368,7 @@ GameObject:
   - component: {fileID: 1093321334}
   - component: {fileID: 1093321333}
   m_Layer: 5
-  m_Name: Resource
+  m_Name: GoldResource
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1860,7 +1852,7 @@ GameObject:
   - component: {fileID: 1838948999}
   - component: {fileID: 1838949000}
   m_Layer: 5
-  m_Name: Town hall (3)
+  m_Name: WoodCuttersDen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1903,7 +1895,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 75c881db697d9f14285337e1c67bf386, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 985fd9374ee3f024fbfd785642049391, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1930,8 +1922,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iconID: 4
-  prefabToSpawn: {fileID: 1764769946589218, guid: 7974c6e7e3bfd1c42bbe9d764d4ee6ca,
-    type: 2}
   buildMenuController: {fileID: 741245215}
   resourceController: {fileID: 558808061}
   woodCost: 10
@@ -1968,7 +1958,7 @@ GameObject:
   - component: {fileID: 1857867826}
   - component: {fileID: 1857867827}
   m_Layer: 5
-  m_Name: Town hall (1)
+  m_Name: Farm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2011,7 +2001,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 75c881db697d9f14285337e1c67bf386, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c35f13855e3f19a4babf23fed1283204, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2038,8 +2028,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iconID: 2
-  prefabToSpawn: {fileID: 1764769946589218, guid: 7974c6e7e3bfd1c42bbe9d764d4ee6ca,
-    type: 2}
   buildMenuController: {fileID: 741245215}
   resourceController: {fileID: 558808061}
   woodCost: 10

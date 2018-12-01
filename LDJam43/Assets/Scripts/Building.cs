@@ -3,10 +3,15 @@ using System.Collections;
 
 public class Building : MonoBehaviour
 {
-    //TODO: Click on the building to opena menu
+    public ResourceController resourceController;
+    //TODO: Click on the building to open a menu
     // Use this for initialization
-    void Start()
+    void Awake()
     {
-        
+        resourceController = FindObjectOfType<ResourceController>();
+        if(resourceController == null)
+        {
+            Debug.Log("The resource controller doesn't exist");
+        }
     }
 }

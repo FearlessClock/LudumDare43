@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class BuildMenuIcon : MonoBehaviour {
     public int iconID;
-    public GameObject prefabToSpawn;
     public BuildMenuController buildMenuController;
     public ResourceController resourceController;
     private bool holdingBuilding;
@@ -85,7 +84,6 @@ public class BuildMenuIcon : MonoBehaviour {
         pos.y = Mathf.RoundToInt(pos.y);
         if (boxCollider.IsTouchingLayers(buildingLayerMask))
         {
-            Debug.Log("Hit one");
             Destroy(heldBuilding);
         }
 
