@@ -11,7 +11,6 @@ public class BuildMenuController : EventTrigger {
     
     public GameObject SpawnSelectedBuilding(int selectedBuildingId)
     {
-        Debug.Log("" + selectedBuildingId);
         GameObject building = Instantiate<GameObject>(buildings[selectedBuildingId], Camera.main.ScreenToWorldPoint(Input.mousePosition), Quaternion.identity);
         buildingController.AddBuilding(building, buildingTypes[selectedBuildingId]);
         building.transform.Translate(0, 0, 10);

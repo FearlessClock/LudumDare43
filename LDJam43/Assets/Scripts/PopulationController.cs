@@ -5,6 +5,9 @@ using TMPro;
 using UnityEngine;
 
 public class PopulationController : MonoBehaviour {
+
+    public static PopulationController instance;
+
     public int amountOfVillagers;
     public int amountOfWorkingVillagers;
     public TextMeshProUGUI amountOfVillagersUI;
@@ -13,8 +16,16 @@ public class PopulationController : MonoBehaviour {
     public int maxAmountOfVillagers;
 
     public BuildingController buildingController;
-	// Use this for initialization
-	void Start () {
+
+    public void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+    }
+
+    void Start () {
         villagers = new List<GameObject>();
         UpdateUI();
     }

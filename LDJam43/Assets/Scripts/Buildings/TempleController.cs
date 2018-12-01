@@ -4,11 +4,7 @@ using UnityEngine;
 
 public class TempleController : Building {
 
-    godController god;
-
-	void Start () {
-        god = FindObjectOfType<godController>();
-	}
-
-
+    void Start () {
+        buildingType = eBuildingTypes.Temple;
+    }
 }

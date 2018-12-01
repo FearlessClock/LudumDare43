@@ -6,6 +6,9 @@ using UnityEngine;
 public enum eGodAngerLevel { Happy, notImpressed, angry, furious}
 
 public class godController : MonoBehaviour {
+
+    public static godController instance;
+
     public float favorLevel;
     public float favorGain;
     public float favorTimeStep;
@@ -25,8 +28,16 @@ public class godController : MonoBehaviour {
     public float randomChanceToDoSomething;
     public float timeTillNextEvent;
     private float timer;
-	// Use this for initialization
-	void Start () {
+
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+    }
+
+    void Start () {
         timer = timeTillNextEvent;
         favorTimer = favorTimeStep;
 	}

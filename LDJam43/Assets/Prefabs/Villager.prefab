@@ -153,7 +153,7 @@ MonoBehaviour:
   newPosRange: 6
   initPosition: {x: 0, y: 0}
   newPosition: {x: 0, y: 0}
-  timeBTWPosChange: 5
+  timeBTWStateChange: 3
 --- !u!212 &212696277060902602
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -187,7 +187,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1971645359
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300004, guid: 1972ee62114209d4c83ac7f1e3b1bf24, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

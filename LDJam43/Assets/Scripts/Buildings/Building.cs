@@ -4,6 +4,7 @@ using System.Collections;
 public class Building : MonoBehaviour
 {
     public ResourceController resourceController;
+    public eBuildingTypes buildingType;
 
     //TODO: Click on the building to open a menu
     // Use this for initialization
@@ -15,6 +16,4 @@ public class Building : MonoBehaviour
             Debug.Log("The resource controller doesn't exist");
         }
     }
-
-
 }
