@@ -7,13 +7,16 @@ public class CameraMove : MonoBehaviour {
     public float sensitivity;
     private Vector3 lastMousePosition;
     private bool hasClicked;
+    [HideInInspector]
+    public bool CanMove;
 	// Use this for initialization
 	void Start () {
+        CanMove = true;
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (!EventSystem.current.IsPointerOverGameObject() && Input.GetMouseButton(0))
+        if (!EventSystem.current.IsPointerOverGameObject() && Input.GetMouseButton(0) && CanMove)
         {
             if (hasClicked)
             {
@@ -27,7 +30,7 @@ public class CameraMove : MonoBehaviour {
             }
         }
 
-        if (Input.GetMouseButtonUp(0))
+        if (CanMove && Input.GetMouseButtonUp(0))
         {
             lastMousePosition = Vector3.zero;
             hasClicked = false;
