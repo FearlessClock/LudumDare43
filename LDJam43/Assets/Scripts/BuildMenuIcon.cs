@@ -8,6 +8,7 @@ public class BuildMenuIcon : MonoBehaviour {
     public int iconID;
     public BuildMenuController buildMenuController;
     public ResourceController resourceController;
+    public PopulationController populationController;
     private bool holdingBuilding;
     private GameObject heldBuilding;
 
@@ -15,6 +16,7 @@ public class BuildMenuIcon : MonoBehaviour {
     public int woodCost;
     public int goldCost;
     public int foodCost;
+    public int villagerCost;
 
     public Camera currentCamera;
     public CameraMove cameraMove;
@@ -63,8 +65,10 @@ public class BuildMenuIcon : MonoBehaviour {
     }
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (resourceController.UseResources(woodCost, goldCost, foodCost))
+        if (resourceController.HasEnoughResources(woodCost, goldCost, foodCost) && populationController.HasSufficientWorkers(villagerCost))
         {
+            resourceController.UseResources(woodCost, goldCost, foodCost);
+            populationController.ConscriptPopulation(villagerCost);
             heldBuilding = buildMenuController.SpawnSelectedBuilding(iconID);
             boxCollider = heldBuilding.GetComponent<BoxCollider2D>();
             holdingBuilding = true;
@@ -78,18 +82,21 @@ public class BuildMenuIcon : MonoBehaviour {
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        Vector3 pos = currentCamera.ScreenToWorldPoint(Input.mousePosition);
-        pos.z = 0;
-        pos.x = Mathf.RoundToInt(pos.x);
-        pos.y = Mathf.RoundToInt(pos.y);
-        if (boxCollider.IsTouchingLayers(buildingLayerMask))
+        if (holdingBuilding)
         {
-            Destroy(heldBuilding);
-        }
+            Vector3 pos = currentCamera.ScreenToWorldPoint(Input.mousePosition);
+            pos.z = 0;
+            pos.x = Mathf.RoundToInt(pos.x);
+            pos.y = Mathf.RoundToInt(pos.y);
+            if (boxCollider.IsTouchingLayers(buildingLayerMask))
+            {
+                Destroy(heldBuilding);
+            }
 
-        heldBuilding.transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder = 5;
-        heldBuilding = null;
-        holdingBuilding = false;
-        cameraMove.CanMove = true;
+            heldBuilding.transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder = 5;
+            heldBuilding = null;
+            holdingBuilding = false;
+            cameraMove.CanMove = true;
+        }
     }
 }

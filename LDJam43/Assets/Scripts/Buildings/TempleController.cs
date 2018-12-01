@@ -8,7 +8,6 @@ public class TempleController : Building {
 
 	void Start () {
         god = FindObjectOfType<godController>();
-        buildingType = EBuildingType.Temple;
 	}
 
 
