@@ -41,3 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Floor
+    uniqueID: 2984267297
+    locked: 0
+  - name: Building
+    uniqueID: 811262573
+    locked: 0
+  - name: People
+    uniqueID: 1971645359
+    locked: 0
