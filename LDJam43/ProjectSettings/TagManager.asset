@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Villager
+  - Building
+  - Environment
   layers:
   - Default
   - TransparentFX
@@ -47,6 +49,9 @@ TagManager:
     locked: 0
   - name: Building
     uniqueID: 811262573
+    locked: 0
+  - name: Environment
+    uniqueID: 2832267615
     locked: 0
   - name: People
     uniqueID: 1971645359

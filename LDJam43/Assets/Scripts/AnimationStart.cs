@@ -11,4 +11,12 @@ public class AnimationStart : MonoBehaviour {
         anim = transform.GetComponent<Animator>();
         anim.Play(animIdToPlay, 0, Random.Range(0, 1f));
 	}
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.tag == "Villager")
+        {
+            anim.SetTrigger("Move");
+        }
+    }
 }

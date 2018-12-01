@@ -20,8 +20,9 @@ public class VillagerController : MonoBehaviour {
     public Vector2 initPosition;
     public Vector2 newPosition;
 
-    public float timeBTWPosChange;
-    private float currentTimeBTWPosChange;
+    public float timeBTWStateChange;
+    private float currentTimeBtwStateChange;
+    private bool CanChangeSate = true;
 
     private bool justChangedStates = false;
 
@@ -34,7 +35,7 @@ public class VillagerController : MonoBehaviour {
         sr = transform.GetChild(0).GetComponent<SpriteRenderer>();
         anim = transform.GetChild(0).GetComponent<Animator>();
 
-        currentTimeBTWPosChange = 0f ;
+        currentTimeBtwStateChange = 0f ;
         initPosition = transform.position;
         GetNewPosition();
 
@@ -45,14 +46,14 @@ public class VillagerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        UpdateState();
+
         currentState = stateStack.Peek();
-
-        UpdateNewPosition();
-
         switch (currentState)
         {
             case EVillagerState.idle:
-                ChangeState(EVillagerState.moving);
+                Idle();
                 break;
             case EVillagerState.moving:
                 Move();
@@ -61,6 +62,18 @@ public class VillagerController : MonoBehaviour {
                 break;
             default:
                 break;
+        }
+    }
+
+    public void Idle()
+    {
+        if (justChangedStates)
+        {
+            anim.SetTrigger("Idle");
+        }
+        else
+        {
+            justChangedStates = false;
         }
     }
 
@@ -99,13 +112,30 @@ public class VillagerController : MonoBehaviour {
         }
     }
 
-    public void UpdateNewPosition()
+    public void UpdateState()
     {
-        currentTimeBTWPosChange -= Time.deltaTime;
-        if (currentTimeBTWPosChange <= 0 || (newPosition - rb.position).magnitude < 0.2)
+        currentTimeBtwStateChange -= Time.deltaTime;
+        if (currentTimeBtwStateChange <= 0 || (newPosition - rb.position).magnitude < 0.2 || CanChangeSate)
         {
-            GetNewPosition();
-            currentTimeBTWPosChange = timeBTWPosChange;
+            CanChangeSate = false;
+
+            currentState = (EVillagerState) Random.Range(0, sizeof(EVillagerState) - 1);
+            ChangeState(currentState);
+
+            switch (currentState)
+            {
+                case EVillagerState.idle:
+                    break;
+                case EVillagerState.moving:
+                    GetNewPosition();
+                    break;
+                case EVillagerState.woodCutting:
+                    break;
+                default:
+                    break;
+            }
+
+            currentTimeBtwStateChange = Random.Range(0.5f, 1.5f) * timeBTWStateChange;
         }
     }
 
@@ -124,11 +154,12 @@ public class VillagerController : MonoBehaviour {
     }
     */
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
-        if(collision.transform.tag == "Villager")
+        if (collision.transform.tag == "Building")
         {
             GetNewPosition();
+            Debug.Log("test");
         }
     }
 
