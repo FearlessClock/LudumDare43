@@ -17,6 +17,6 @@ public class BuildMenuController : MonoBehaviour {
     public void SpawnSelectedBuilding(int selectedBuildingId)
     {
         GameObject building = Instantiate<GameObject>(buildings[selectedBuildingId], Camera.main.ScreenToWorldPoint(Input.mousePosition), Quaternion.identity);
-
+        building.transform.Translate(0, 0, 10);
     }
 }
