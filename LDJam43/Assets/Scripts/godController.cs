@@ -6,6 +6,8 @@ public enum eGodAngerLevel { Happy, notImpressed, angry, furious}
 public class godController : MonoBehaviour {
     public float favorLevel;
     public float favorGain;
+    public float favorTimeStep;
+    private float favorTimer;
     public ResourceController resourceController;
 
     public float happyLevel;
@@ -23,12 +25,18 @@ public class godController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         timer = timeTillNextEvent;
+        favorTimer = favorTimeStep;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        CalculateFavorGain();
-        AddFavor(favorGain);
+        favorTimer -= Time.deltaTime;
+        if(favorTimer <= 0)
+        {
+            favorTimer = favorTimeStep;
+            CalculateFavorGain();
+            AddFavor(favorGain);
+        }
 		if(favorLevel <= furiousLevel)
         {
             currentGodAngerLevel = eGodAngerLevel.furious;
@@ -80,7 +88,7 @@ public class godController : MonoBehaviour {
     {
         float prosperity = (resourceController.foodStoredAmount + resourceController.woodStoredAmount + resourceController.goldStoredAmount)/3;
 
-        favorGain = 4/(1 + Mathf.Exp(-prosperity/3)) - 4/2;
+        favorGain = -2/(1 + Mathf.Exp(-prosperity/3)) - 2/2;
     }
 
     public void AddFavor(float amount)

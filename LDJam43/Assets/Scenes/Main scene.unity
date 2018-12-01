@@ -291,6 +291,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   favorLevel: 5
   favorGain: 0
+  favorTimeStep: 5
   resourceController: {fileID: 558808061}
   happyLevel: 20
   notImpressedLevel: 15
