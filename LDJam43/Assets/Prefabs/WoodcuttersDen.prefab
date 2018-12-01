@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resourceController: {fileID: 0}
-  woodGiveAmount: 8
+  woodGiveAmount: 1
   timeTillGive: 3
 --- !u!212 &212002789274172570
 SpriteRenderer:

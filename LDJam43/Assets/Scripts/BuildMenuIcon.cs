@@ -52,11 +52,11 @@ public class BuildMenuIcon : MonoBehaviour {
             heldBuilding.transform.position = pos;
             if (boxCollider.IsTouchingLayers(buildingLayerMask))
             {
-                heldBuilding.GetComponent<SpriteRenderer>().color = Color.red;
+                heldBuilding.transform.GetChild(0).GetComponent<SpriteRenderer>().color = Color.red;
             }
             else
             {
-                heldBuilding.GetComponent<SpriteRenderer>().color = Color.white;
+                heldBuilding.transform.GetChild(0).GetComponent<SpriteRenderer>().color = Color.white;
             }
 
         }
@@ -87,7 +87,7 @@ public class BuildMenuIcon : MonoBehaviour {
             Destroy(heldBuilding);
         }
 
-        heldBuilding.GetComponent<SpriteRenderer>().sortingOrder = 0;
+        heldBuilding.transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder = 5;
         heldBuilding = null;
         holdingBuilding = false;
         cameraMove.CanMove = true;

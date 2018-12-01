@@ -1,9 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 public enum eGodAngerLevel { Happy, notImpressed, angry, furious}
 public class godController : MonoBehaviour {
     public float favorLevel;
+    public float favorGain;
+    public ResourceController resourceController;
 
     public float happyLevel;
     public float notImpressedLevel;
@@ -24,6 +27,8 @@ public class godController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        CalculateFavorGain();
+        AddFavor(favorGain);
 		if(favorLevel <= furiousLevel)
         {
             currentGodAngerLevel = eGodAngerLevel.furious;
@@ -41,7 +46,7 @@ public class godController : MonoBehaviour {
             currentGodAngerLevel = eGodAngerLevel.Happy;
         }
         timer -= Time.deltaTime;
-        if(timer <= 0 && Random.Range(0f, 1f) < randomChanceToDoSomething)
+        if(timer <= 0 && UnityEngine.Random.Range(0f, 1f) < randomChanceToDoSomething)
         {
             timer = timeTillNextEvent;
             switch (currentGodAngerLevel)
@@ -61,7 +66,7 @@ public class godController : MonoBehaviour {
                     BlackPlagueController bpController = bpObj.GetComponent<BlackPlagueController>();
                     Vector2 cameraPos = Camera.main.transform.position;
                     //Start the black plague offscreen and get the point across from the screen
-                    bpController.startingPosition = cameraPos + (Random.insideUnitCircle.normalized * spawnRange);
+                    bpController.startingPosition = cameraPos + (UnityEngine.Random.insideUnitCircle.normalized * spawnRange);
                     Vector3 toCenter = (Camera.main.transform.position - bpController.startingPosition).normalized * spawnRange; 
                     bpController.endPosition = toCenter;
                     break;
@@ -70,6 +75,20 @@ public class godController : MonoBehaviour {
             }
         }
     }
+
+    private void CalculateFavorGain()
+    {
+        float prosperity = (resourceController.foodStoredAmount + resourceController.woodStoredAmount + resourceController.goldStoredAmount)/3;
+
+        favorGain = 4/(1 + Mathf.Exp(-prosperity/3)) - 4/2;
+    }
+
+    public void AddFavor(float amount)
+    {
+        favorLevel += amount;
+    }
+
+
 
     private void OnDrawGizmosSelected()
     {

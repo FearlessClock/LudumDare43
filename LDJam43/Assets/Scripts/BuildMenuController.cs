@@ -11,7 +11,7 @@ public class BuildMenuController : EventTrigger {
     {
         GameObject building = Instantiate<GameObject>(buildings[selectedBuildingId], Camera.main.ScreenToWorldPoint(Input.mousePosition), Quaternion.identity);
         building.transform.Translate(0, 0, 10);
-        building.GetComponent<SpriteRenderer>().sortingOrder = 10;
+        building.transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder = 10;
         return building;
     }
 }

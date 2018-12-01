@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resourceController: {fileID: 0}
-  goldGiveAmount: 10
+  goldGiveAmount: 1
   timeTillGive: 3
 --- !u!212 &212371593626042378
 SpriteRenderer:
