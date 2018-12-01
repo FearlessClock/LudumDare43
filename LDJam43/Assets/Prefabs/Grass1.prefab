@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4771772248845978}
   - component: {fileID: 95654941921517428}
+  - component: {fileID: 114247081556218426}
   m_Layer: 0
   m_Name: Grass1
   m_TagString: Untagged
@@ -63,7 +64,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1447473291758710}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.061042, y: 4.948232, z: 16.756985}
+  m_LocalPosition: {x: 9.62397, y: 5.6563087, z: 16.756985}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4212197628457736}
@@ -88,6 +89,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114247081556218426
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1447473291758710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57f92fb7d315dd244888436ebe5eca7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animIdToPlay: 0
 --- !u!212 &212400069333093970
 SpriteRenderer:
   m_ObjectHideFlags: 1
