@@ -1,9 +1,8 @@
 fileFormatVersion: 2
-guid: 7bf79935638f21c45a933087e6b3e0a5
+guid: b97757ec0c3475c4398506b835d489c1
 TextureImporter:
   fileIDToRecycleName:
-    21300000: grass_0
-    21300002: grass_1
+    21300000: Farm_0
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -47,7 +46,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -93,56 +92,25 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: grass_0
+      name: Farm_0
       rect:
         serializedVersion: 2
-        x: 155
-        y: 677
-        width: 339
-        height: 372
-      alignment: 9
-      pivot: {x: 0.43113956, y: 0.13091762}
+        x: 162
+        y: 480
+        width: 885
+        height: 442
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b623b7bcb4b4fb9428d67812f8d0f166
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: grass_1
-      rect:
-        serializedVersion: 2
-        x: 642
-        y: 641
-        width: 154
-        height: 503
-      alignment: 9
-      pivot: {x: 0.46433368, y: 0.10689003}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 441d163a10319184c956d6ec2df08d7e
+      spriteID: d85b42236f8c0e24cab4908f9ec9fd14
       vertices: []
       indices: 
       edges: []
@@ -150,7 +118,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: d872eb1224e83c64baba2d30ebd8cb6d
+    spriteID: 371d0a1100911954b9b7ca9a750ddcd3
     vertices: []
     indices: 
     edges: []

@@ -116,11 +116,13 @@ public class VillagerController : MonoBehaviour {
         justChangedStates = true;
     }
 
+    /*
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(initPosition, newPosRange);
         Gizmos.DrawSphere((newPosition), 0.5f);
     }
+    */
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
