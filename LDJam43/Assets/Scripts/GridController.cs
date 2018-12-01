@@ -18,7 +18,7 @@ public class GridController : MonoBehaviour {
                 grid[i, j] = Instantiate<GameObject>(floorSprite, new Vector3(i, j, 0), Quaternion.identity);
                 if((i+j%2)%2 == 0)
                 {
-                    grid[i, j].GetComponent<SpriteRenderer>().color = new Color(0.9f, 0.9f, 0.9f, 1);
+                    grid[i, j].transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(0.9f, 0.9f, 0.9f, 1);
                 }
                 grid[i, j].transform.parent = this.transform;
             }
