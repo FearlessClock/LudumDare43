@@ -5,13 +5,11 @@ using UnityEngine;
 public class Mover : MonoBehaviour {
 
     public float speed;
-    private float currentSpeed;
+    public float currentSpeed;
     public float initXPos;
-
 
 	void Start () {
         currentSpeed = speed * Random.Range(-0.5f, 1.2f);
-
     }
 	
 	void Update () {

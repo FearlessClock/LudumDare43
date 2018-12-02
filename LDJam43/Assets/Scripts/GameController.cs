@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour {
     public bool isBuilding;
 
 	void Update () {
+
         if (Input.GetMouseButtonDown(0) && !isBuilding)
         {
             mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
