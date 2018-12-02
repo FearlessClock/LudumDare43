@@ -879,6 +879,7 @@ MonoBehaviour:
   amountOfVillagers: 1
   amountOfWorkingVillagers: 0
   amountOfVillagersUI: {fileID: 312142865}
+  amountOfVillagerAnim: {fileID: 1208948357}
   villager: {fileID: 1516372291763922, guid: efd641a9746c23449b6707604ebb304c, type: 2}
   maxAmountOfVisibleVillagers: 100
   timeTillNextBaby: 5
@@ -1014,7 +1015,7 @@ GameObject:
   - component: {fileID: 312142866}
   - component: {fileID: 312142865}
   m_Layer: 5
-  m_Name: populationText
+  m_Name: ResourceText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1548,11 +1549,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4568020201882830, guid: b1529aec0441554439e8ff7f016290ee, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 5.7446184
+      value: 5.51
       objectReference: {fileID: 0}
     - target: {fileID: 4568020201882830, guid: b1529aec0441554439e8ff7f016290ee, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 11.616471
+      value: 11.8
       objectReference: {fileID: 0}
     - target: {fileID: 4568020201882830, guid: b1529aec0441554439e8ff7f016290ee, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1940,6 +1941,9 @@ MonoBehaviour:
   woodUI: {fileID: 1928076829}
   goldUI: {fileID: 1149767098}
   foodUI: {fileID: 557400148}
+  woodAnim: {fileID: 794356700}
+  goldAnim: {fileID: 1093321336}
+  foodAnim: {fileID: 765844205}
 --- !u!1001 &559435981
 Prefab:
   m_ObjectHideFlags: 0
@@ -2836,11 +2840,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4233218218257980, guid: 9cf7efc5d17aa4143a2bccac3da0156f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 5.89124
+      value: 5.7
       objectReference: {fileID: 0}
     - target: {fileID: 4233218218257980, guid: 9cf7efc5d17aa4143a2bccac3da0156f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 10.621945
+      value: 10.85
       objectReference: {fileID: 0}
     - target: {fileID: 4233218218257980, guid: 9cf7efc5d17aa4143a2bccac3da0156f, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2936,6 +2940,7 @@ GameObject:
   - component: {fileID: 765844204}
   - component: {fileID: 765844203}
   - component: {fileID: 765844202}
+  - component: {fileID: 765844205}
   m_Layer: 5
   m_Name: FoodResource (2)
   m_TagString: Untagged
@@ -3020,6 +3025,24 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!95 &765844205
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 765844200}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a411183a8619dbd4aa0e14d1b2e9fbd7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &771016454
 Prefab:
   m_ObjectHideFlags: 0
@@ -3082,6 +3105,7 @@ GameObject:
   - component: {fileID: 794356699}
   - component: {fileID: 794356698}
   - component: {fileID: 794356697}
+  - component: {fileID: 794356700}
   m_Layer: 5
   m_Name: WoodResource (1)
   m_TagString: Untagged
@@ -3166,6 +3190,24 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!95 &794356700
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 794356695}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a411183a8619dbd4aa0e14d1b2e9fbd7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &815005242
 Prefab:
   m_ObjectHideFlags: 0
@@ -4505,6 +4547,7 @@ GameObject:
   - component: {fileID: 1093321335}
   - component: {fileID: 1093321334}
   - component: {fileID: 1093321333}
+  - component: {fileID: 1093321336}
   m_Layer: 5
   m_Name: GoldResource
   m_TagString: Untagged
@@ -4589,6 +4632,24 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!95 &1093321336
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1093321331}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a411183a8619dbd4aa0e14d1b2e9fbd7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1112011595
 Prefab:
   m_ObjectHideFlags: 0
@@ -5009,6 +5070,7 @@ GameObject:
   - component: {fileID: 1208948354}
   - component: {fileID: 1208948356}
   - component: {fileID: 1208948355}
+  - component: {fileID: 1208948357}
   m_Layer: 5
   m_Name: PopulationCounter
   m_TagString: Untagged
@@ -5070,6 +5132,24 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1208948353}
   m_CullTransparentMesh: 0
+--- !u!95 &1208948357
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1208948353}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a411183a8619dbd4aa0e14d1b2e9fbd7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1218413003
 Prefab:
   m_ObjectHideFlags: 0

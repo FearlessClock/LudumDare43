@@ -12,6 +12,7 @@ public class PopulationController : MonoBehaviour {
     public int amountOfWorkingVillagers;        //Amount of villagers currently working
     private int populationSize;                 //Currently available population.
     public TextMeshProUGUI amountOfVillagersUI;
+    public Animator amountOfVillagerAnim;
     private List<GameObject> SpawnedVillagers;         //List of villagers instantiated
     public GameObject villager;
     public int maxAmountOfVisibleVillagers;     //The max amount of villagers that can be spawned
@@ -39,6 +40,7 @@ public class PopulationController : MonoBehaviour {
 
     public void IncreasePopulationSize(int amount)
     {
+        amountOfVillagerAnim.SetTrigger("Bop");
         populationSize += amount;
         UpdateUI();
     }
@@ -66,6 +68,7 @@ public class PopulationController : MonoBehaviour {
             }
         }
         //TODO: Check if buildings stop working when removing villagers
+        amountOfVillagerAnim.SetTrigger("Bop");
         amountOfVillagers -= amountToKill;
         UpdateUI();
     }

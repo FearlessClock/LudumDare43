@@ -15,6 +15,11 @@ public class ResourceController : MonoBehaviour
     public TextMeshProUGUI goldUI;
     public TextMeshProUGUI foodUI;
 
+    public Animator woodAnim;
+    public Animator goldAnim;
+    public Animator foodAnim;
+
+
     private void Awake()
     {
         if(instance == null)
@@ -69,6 +74,20 @@ public class ResourceController : MonoBehaviour
         woodStoredAmount += wood;
         goldStoredAmount += gold;
         foodStoredAmount += food;
+
+        if(wood != 0)
+        {
+            woodAnim.SetTrigger("Bop");
+        }
+        if (gold != 0)
+        {
+            goldAnim.SetTrigger("Bop");
+        }
+        if (food != 0)
+        {
+            foodAnim.SetTrigger("Bop");
+        }
+
         UpdateResourceUI();
     }
 }
