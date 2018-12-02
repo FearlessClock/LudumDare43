@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class MainMenuController : MonoBehaviour {
+public enum ECutscene { ZoomIn, IdleLightning, ZoomOut}
 
-    public GameObject fadePanel;
+public class CutSceneController : MonoBehaviour {
+
+    public ECutscene currentCutScene;
+
+    // Lightning scene
     public GameObject lightning;
 
     public GameObject lightningSpawnPositionsHolder;
@@ -14,8 +17,9 @@ public class MainMenuController : MonoBehaviour {
     public float timeBTWLightning;
     private float currentTimeBTWLightning;
 
-    private void Awake()
-    {
+    void Awake () {
+        currentCutScene = ECutscene.ZoomIn;
+
         currentTimeBTWLightning = 0;
         lightningSpawnPositions = new Vector2[lightningSpawnPositionsHolder.transform.childCount];
 
@@ -23,13 +27,28 @@ public class MainMenuController : MonoBehaviour {
         {
             lightningSpawnPositions[i] = lightningSpawnPositionsHolder.transform.GetChild(i).position;
         }
-
+    }
+	
+	// Update is called once per frame
+	void Update () {
+        switch (currentCutScene)
+        {
+            case ECutscene.ZoomIn:
+                break;
+            case ECutscene.IdleLightning:
+                SpawnLightning();
+                break;
+            case ECutscene.ZoomOut:
+                break;
+            default:
+                break;
+        }
     }
 
-    private void Update()
+    public void SpawnLightning()
     {
         currentTimeBTWLightning -= Time.deltaTime;
-        if(currentTimeBTWLightning < 0)
+        if (currentTimeBTWLightning < 0)
         {
             Vector2 randPos = lightningSpawnPositions[Random.Range(0, lightningSpawnPositions.Length)];
             Instantiate(lightning, randPos, Quaternion.identity);
@@ -38,15 +57,8 @@ public class MainMenuController : MonoBehaviour {
         }
     }
 
-    public void LoadScene(string sceneName)
+    public void GoToNextCutScene()
     {
-        StartCoroutine("GoToNextScene", sceneName);
-    }
-
-    IEnumerator GoToNextScene(string sceneName)
-    {
-        fadePanel.GetComponent<Animator>().SetTrigger("FadeIn");
-        yield return new WaitForSeconds(10f/60f);
-        SceneManager.LoadScene(sceneName);
+        currentCutScene = (ECutscene)((int)currentCutScene + 1);
     }
 }
