@@ -85,9 +85,10 @@ public class godController : MonoBehaviour {
                     //TODO: Send great wind storm
                     break;
                 case eGodAngerLevel.furious:
-                    Debug.Log("Play black plague soundscape");
+                    
                     //Create the black plague
                     GameObject bpObj = Instantiate<GameObject>(blackDeathPrefab, this.transform);
+                    
                     BlackPlagueController bpController = bpObj.GetComponent<BlackPlagueController>();
                     Vector2 cameraPos = Camera.main.transform.position;
                     //Start the black plague offscreen and get the point across from the screen
