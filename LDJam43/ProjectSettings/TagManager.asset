@@ -8,6 +8,8 @@ TagManager:
   - Building
   - Environment
   - Temple
+  - Collector
+  - MoveEnvironment
   layers:
   - Default
   - TransparentFX
