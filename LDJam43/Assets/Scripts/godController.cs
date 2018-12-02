@@ -104,7 +104,7 @@ public class godController : MonoBehaviour {
     {
         float prosperity = (resourceController.foodStoredAmount + resourceController.woodStoredAmount + resourceController.goldStoredAmount + populationController.amountOfVillagers) /4;
 
-        favorGain = -1/(1 + Mathf.Exp(-prosperity/3)) - 1/2 + constantFavor;
+        favorGain = -1/(1 + Mathf.Exp(-prosperity/3)) - 1/2 + constantFavor;    //TODO: Change the equation to a more constant raise
     }
 
     public void AddConstantFavor(float amount)
