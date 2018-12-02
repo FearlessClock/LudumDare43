@@ -25,8 +25,15 @@ public class BuildMenuIcon : MonoBehaviour {
     public LayerMask buildingLayerMask;
 
     private Collider2D boxCollider;
+
+    private AudioSource audioSource;
+    public AudioClip buildSound;
+    public AudioClip cantBuildSound;
+    public AudioClip buildOnGroundSound;
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+
         EventTrigger trigger = GetComponent<EventTrigger>();
         EventTrigger.Entry entry = new EventTrigger.Entry();
         entry.eventID = EventTriggerType.PointerDown;
@@ -68,7 +75,7 @@ public class BuildMenuIcon : MonoBehaviour {
     {
         if (resourceController.HasEnoughResources(woodCost, goldCost, foodCost) && populationController.HasSufficientWorkers(villagerCost))
         {
-            Debug.Log("Play build sound");
+            audioSource.PlayOneShot(buildSound);
             resourceController.UseResources(woodCost, goldCost, foodCost);
             populationController.ConscriptPopulation(villagerCost);
             heldBuilding = buildMenuController.SpawnSelectedBuilding(iconID);
@@ -79,7 +86,7 @@ public class BuildMenuIcon : MonoBehaviour {
         }
         else
         {
-            Debug.Log("Play error sound");
+            audioSource.PlayOneShot(cantBuildSound);
             cameraMove.CanMove = false;
             gameController.isBuilding = true;
         }
@@ -95,12 +102,14 @@ public class BuildMenuIcon : MonoBehaviour {
             pos.y = Mathf.RoundToInt(pos.y);
             if (boxCollider.IsTouchingLayers(buildingLayerMask))
             {
-                Debug.Log("play can't place sound");
+                audioSource.PlayOneShot(cantBuildSound);
+                resourceController.AddResources(woodCost, goldCost, foodCost);
+                populationController.freeVillager(villagerCost);
                 Destroy(heldBuilding);
             }
             else
             {
-                Debug.Log("Play build place sound");
+                audioSource.PlayOneShot(buildOnGroundSound);
             }
             heldBuilding.transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder = 5;
             heldBuilding.GetComponent<Building>().buildingPlaced = true;

@@ -117,4 +117,9 @@ public class PopulationController : MonoBehaviour {
             throw new Exception("There weren't enough workers but we were too late...");
         }
     }
+
+    public void freeVillager(int villagerCost)
+    {
+        amountOfWorkingVillagers -= villagerCost;
+    }
 }
