@@ -30,14 +30,10 @@ public class GameController : MonoBehaviour {
 
             if(building != null)
             {
-                if(building.transform.GetComponent<Building>().buildingType == eBuildingTypes.Temple)
+                if(building.transform.GetComponent<Building>().buildingType == eBuildingTypes.Temple && building.transform.GetComponent<Building>().buildingPlaced)
                 {
                     TemplePanel.SetActive(true);
                 }
-            }
-            else
-            {
-                TemplePanel.SetActive(false);
             }
         }
 	}
@@ -50,5 +46,10 @@ public class GameController : MonoBehaviour {
             // Play some sacrifice sound -> woula woula -> arggg
             godController.instance.AddFavor(10); // Maybe % of max favor -> 35%
         }
+    }
+
+    public void ClosePanel(GameObject panel)
+    {
+        panel.SetActive(false);
     }
 }

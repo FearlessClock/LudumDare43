@@ -5,6 +5,7 @@ public class Building : MonoBehaviour
 {
     public ResourceController resourceController;
     public eBuildingTypes buildingType;
+    public bool buildingPlaced = false;
 
     //TODO: Click on the building to open a menu
     // Use this for initialization
