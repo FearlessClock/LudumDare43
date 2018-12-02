@@ -7,6 +7,7 @@ public class BlackPlagueController : MonoBehaviour {
     public Vector3 endPosition;
     private Vector3 direction;
     private ParticleSystem smokeParticleSys;
+    private PopulationController popController;
     public float speed;
 	// Use this for initialization
 	void Start () {
@@ -14,7 +15,9 @@ public class BlackPlagueController : MonoBehaviour {
         direction.Normalize();
         this.transform.position = startingPosition;
         smokeParticleSys = GetComponent<ParticleSystem>();
-	}
+        popController = FindObjectOfType<PopulationController>();
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -25,7 +28,7 @@ public class BlackPlagueController : MonoBehaviour {
             smokeParticleSys.Play();
             Invoke("RemoveSpriteRenderer", 0.7f);
             Destroy(this.gameObject, 3);
-            //TODO: Remove population = to about 30%
+            popController.KillPercentOfPopulation(10);
         }
 	}
 

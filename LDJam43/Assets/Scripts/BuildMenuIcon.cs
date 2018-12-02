@@ -9,6 +9,7 @@ public class BuildMenuIcon : MonoBehaviour {
     public BuildMenuController buildMenuController;
     public ResourceController resourceController;
     public PopulationController populationController;
+    public GameController gameController;
     private bool holdingBuilding;
     private GameObject heldBuilding;
 
@@ -73,10 +74,12 @@ public class BuildMenuIcon : MonoBehaviour {
             boxCollider = heldBuilding.GetComponent<BoxCollider2D>();
             holdingBuilding = true;
             cameraMove.CanMove = false;
+            gameController.isBuilding = true;
         }
         else
         {
             cameraMove.CanMove = false;
+            gameController.isBuilding = true;
         }
     }
 
@@ -96,7 +99,8 @@ public class BuildMenuIcon : MonoBehaviour {
             heldBuilding.transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder = 5;
             heldBuilding = null;
             holdingBuilding = false;
-            cameraMove.CanMove = true;
         }
+        cameraMove.CanMove = true;
+        gameController.isBuilding = false;
     }
 }

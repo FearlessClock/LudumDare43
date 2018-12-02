@@ -35,9 +35,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4503630414185134}
+  - component: {fileID: 114310870449609802}
   - component: {fileID: 61662652803991554}
   - component: {fileID: 50350782845955624}
-  - component: {fileID: 114310870449609802}
   m_Layer: 8
   m_Name: House
   m_TagString: Building
@@ -128,7 +128,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0be55359df6c23b44b5537f2b4455e57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeTellNextBaby: 10
+  resourceController: {fileID: 0}
+  buildingType: 0
+  maxPeopleInTheHouse: 10
 --- !u!212 &212664243272071702
 SpriteRenderer:
   m_ObjectHideFlags: 1

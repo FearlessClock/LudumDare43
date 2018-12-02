@@ -48,20 +48,26 @@ public class VillagerController : MonoBehaviour {
 	void Update () {
 
         UpdateState();
-
-        currentState = stateStack.Peek();
-        switch (currentState)
+        if(stateStack.Count > 0)
         {
-            case EVillagerState.idle:
-                Idle();
-                break;
-            case EVillagerState.moving:
-                Move();
-                break;
-            case EVillagerState.woodCutting:
-                break;
-            default:
-                break;
+            currentState = stateStack.Peek();
+            switch (currentState)
+            {
+                case EVillagerState.idle:
+                    Idle();
+                    break;
+                case EVillagerState.moving:
+                    Move();
+                    break;
+                case EVillagerState.woodCutting:
+                    break;
+                default:
+                    break;
+            }
+        }
+        else
+        {
+            stateStack.Push(EVillagerState.idle);
         }
     }
 
@@ -159,7 +165,6 @@ public class VillagerController : MonoBehaviour {
         if (collision.transform.tag == "Building")
         {
             GetNewPosition();
-            Debug.Log("test");
         }
     }
 

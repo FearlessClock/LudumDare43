@@ -10,8 +10,10 @@ public class GameController : MonoBehaviour {
 
     public GameObject TemplePanel;
 
+    public bool isBuilding;
+
 	void Update () {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !isBuilding)
         {
             mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Collider2D[] buildingS = Physics2D.OverlapCircleAll(mousePos, mouseClickRange);

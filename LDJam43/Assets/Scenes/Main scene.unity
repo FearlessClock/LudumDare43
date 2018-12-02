@@ -199,6 +199,7 @@ MonoBehaviour:
   buildMenuController: {fileID: 741245215}
   resourceController: {fileID: 558808061}
   populationController: {fileID: 289308756}
+  gameController: {fileID: 1662875056}
   woodCost: 10
   goldCost: 2
   foodCost: 4
@@ -371,6 +372,7 @@ MonoBehaviour:
   amountOfVillagersUI: {fileID: 312142865}
   villager: {fileID: 1516372291763922, guid: efd641a9746c23449b6707604ebb304c, type: 2}
   maxAmountOfVillagers: 100
+  timeTillNextBaby: 5
   buildingController: {fileID: 2118016908}
 --- !u!4 &289308757
 Transform:
@@ -747,7 +749,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 51.2, y: -59.74998}
+  m_AnchoredPosition: {x: 51.200195, y: -59.74998}
   m_SizeDelta: {x: -125, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &558808059
@@ -882,6 +884,7 @@ MonoBehaviour:
   buildMenuController: {fileID: 741245215}
   resourceController: {fileID: 558808061}
   populationController: {fileID: 289308756}
+  gameController: {fileID: 1662875056}
   woodCost: 10
   goldCost: 2
   foodCost: 4
@@ -1309,6 +1312,7 @@ MonoBehaviour:
   buildMenuController: {fileID: 741245215}
   resourceController: {fileID: 558808061}
   populationController: {fileID: 289308756}
+  gameController: {fileID: 1662875056}
   woodCost: 10
   goldCost: 2
   foodCost: 4
@@ -1552,7 +1556,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -4.699951, y: 0}
+  m_AnchoredPosition: {x: -4.699707, y: 0}
   m_SizeDelta: {x: -627.7, y: 119.5}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &900536993
@@ -1675,10 +1679,11 @@ MonoBehaviour:
   buildMenuController: {fileID: 741245215}
   resourceController: {fileID: 558808061}
   populationController: {fileID: 289308756}
+  gameController: {fileID: 1662875056}
   woodCost: 10
   goldCost: 2
   foodCost: 4
-  villagerCost: 0
+  villagerCost: 1
   currentCamera: {fileID: 834879934}
   cameraMove: {fileID: 834879936}
   buildingLayerMask:
@@ -1824,7 +1829,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 51.2, y: -59.74998}
+  m_AnchoredPosition: {x: 51.200195, y: -59.74998}
   m_SizeDelta: {x: -125, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1149767097
@@ -1979,11 +1984,11 @@ RectTransform:
   m_Father: {fileID: 1767657119}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -730.7, y: 429.37}
-  m_SizeDelta: {x: 304.4, y: 119.5}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 304.40002, y: 119.5}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &1208948355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2337,7 +2342,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -88.6, y: -62}
+  m_AnchoredPosition: {x: -88.6001, y: -62.000008}
   m_SizeDelta: {x: -1230.3, y: -553.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1656776945
@@ -2492,6 +2497,7 @@ MonoBehaviour:
   mousePos: {x: 0, y: 0}
   mouseClickRange: 0.7
   TemplePanel: {fileID: 1656776943}
+  isBuilding: 0
 --- !u!1 &1767657115
 GameObject:
   m_ObjectHideFlags: 0
@@ -2798,10 +2804,11 @@ MonoBehaviour:
   buildMenuController: {fileID: 741245215}
   resourceController: {fileID: 558808061}
   populationController: {fileID: 289308756}
+  gameController: {fileID: 1662875056}
   woodCost: 10
   goldCost: 2
   foodCost: 4
-  villagerCost: 0
+  villagerCost: 1
   currentCamera: {fileID: 834879934}
   cameraMove: {fileID: 834879936}
   buildingLayerMask:
@@ -2906,10 +2913,11 @@ MonoBehaviour:
   buildMenuController: {fileID: 741245215}
   resourceController: {fileID: 558808061}
   populationController: {fileID: 289308756}
+  gameController: {fileID: 1662875056}
   woodCost: 10
   goldCost: 2
   foodCost: 4
-  villagerCost: 0
+  villagerCost: 1
   currentCamera: {fileID: 834879934}
   cameraMove: {fileID: 834879936}
   buildingLayerMask:
