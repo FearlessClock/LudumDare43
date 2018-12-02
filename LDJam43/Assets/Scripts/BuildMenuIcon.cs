@@ -94,6 +94,7 @@ public class BuildMenuIcon : MonoBehaviour {
             }
 
             heldBuilding.transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder = 5;
+            heldBuilding.GetComponent<Building>().buildingPlaced = true;
             heldBuilding = null;
             holdingBuilding = false;
             cameraMove.CanMove = true;
