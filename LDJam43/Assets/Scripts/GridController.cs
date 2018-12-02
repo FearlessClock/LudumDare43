@@ -9,6 +9,7 @@ public class GridController : MonoBehaviour {
     public Vector2 gridSize;
     // Use this for initialization
 	void Start () {
+        /*
         //Generate the grid with basic tile 
         grid = new GameObject[(int)gridSize.x, (int)gridSize.y];
         for (int i = 0; i < grid.GetLength(0); i++)
@@ -23,6 +24,7 @@ public class GridController : MonoBehaviour {
                 grid[i, j].transform.parent = this.transform;
             }
         }
+        */
 	}
 
     public GameObject GetTileAt(Vector2 pos)
