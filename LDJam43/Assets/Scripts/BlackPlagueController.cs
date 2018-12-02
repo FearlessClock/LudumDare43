@@ -7,25 +7,31 @@ public class BlackPlagueController : MonoBehaviour {
     public Vector3 endPosition;
     private Vector3 direction;
     private ParticleSystem smokeParticleSys;
+    private PopulationController popController;
     public float speed;
+    private bool killed;
 	// Use this for initialization
 	void Start () {
+        killed = false;
         direction = endPosition - startingPosition;
         direction.Normalize();
         this.transform.position = startingPosition;
         smokeParticleSys = GetComponent<ParticleSystem>();
-	}
+        popController = FindObjectOfType<PopulationController>();
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
         this.transform.position += direction * speed * Time.deltaTime;
-        if(Vector3.Distance(this.transform.position, endPosition) < 1)
+        if(Vector3.Distance(this.transform.position, endPosition) < 1 && !killed)
         {
             speed = 0;
             smokeParticleSys.Play();
             Invoke("RemoveSpriteRenderer", 0.7f);
             Destroy(this.gameObject, 3);
-            //TODO: Remove population = to about 30%
+            popController.KillPercentOfPopulation(50);
+            killed = true;
         }
 	}
 

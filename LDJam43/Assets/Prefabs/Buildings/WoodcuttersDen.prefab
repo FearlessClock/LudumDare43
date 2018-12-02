@@ -129,6 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resourceController: {fileID: 0}
+  buildingType: 4
   woodGiveAmount: 1
   timeTillGive: 3
 --- !u!212 &212002789274172570

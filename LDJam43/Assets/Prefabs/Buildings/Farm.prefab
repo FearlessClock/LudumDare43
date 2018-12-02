@@ -129,6 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resourceController: {fileID: 0}
+  buildingType: 2
   foodGiveAmount: 1
   timeTillGive: 1
 --- !u!212 &212312288577645214

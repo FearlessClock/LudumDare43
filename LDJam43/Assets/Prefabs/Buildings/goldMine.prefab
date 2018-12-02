@@ -129,6 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resourceController: {fileID: 0}
+  buildingType: 3
   goldGiveAmount: 1
   timeTillGive: 3
 --- !u!212 &212371593626042378

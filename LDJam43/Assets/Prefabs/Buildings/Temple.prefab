@@ -19,9 +19,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4699823199529090}
+  - component: {fileID: 114580023451686678}
   - component: {fileID: 61624706370693762}
   - component: {fileID: 50869203056458086}
-  - component: {fileID: 114580023451686678}
   m_Layer: 8
   m_Name: Temple
   m_TagString: Temple

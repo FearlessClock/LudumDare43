@@ -129,6 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resourceController: {fileID: 0}
+  buildingType: 1
   townHallLevel: 0
 --- !u!212 &212667616686815528
 SpriteRenderer:

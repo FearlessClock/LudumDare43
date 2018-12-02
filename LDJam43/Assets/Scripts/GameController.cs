@@ -10,8 +10,10 @@ public class GameController : MonoBehaviour {
 
     public GameObject TemplePanel;
 
+    public bool isBuilding;
+
 	void Update () {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !isBuilding)
         {
             mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Collider2D[] buildingS = Physics2D.OverlapCircleAll(mousePos, mouseClickRange);
@@ -42,8 +44,17 @@ public class GameController : MonoBehaviour {
         {
             // Kill of X% of the population
             // Play some sacrifice sound -> woula woula -> arggg
+            Debug.Log("Play sacrifice sound effect");
+            PopulationController.instance.KillPercentOfPopulation(30);
             godController.instance.AddFavor(10); // Maybe % of max favor -> 35%
+            godController.instance.AddConstantFavor(1);
+            Invoke("RemoveSacrificeBonus", 30); //Remove the constant bonus from the sacrifice
         }
+    }
+
+    public void RemoveSacrificeBonus()
+    {
+        godController.instance.AddConstantFavor(-1);
     }
 
     public void ClosePanel(GameObject panel)
