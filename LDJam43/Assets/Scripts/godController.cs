@@ -10,7 +10,9 @@ public class godController : MonoBehaviour {
     public static godController instance;
 
     public float favorLevel;
-    public float favorGain;
+    public float favorGain;         //Favor gained/Lost from resources
+    public float constantFavor;     //Favor gained from temples and sacrifices;
+    //TODO: Make the sacrifice favor gain be temporary
     public float favorTimeStep;
     private float favorTimer;
     public ResourceController resourceController;
@@ -102,7 +104,12 @@ public class godController : MonoBehaviour {
     {
         float prosperity = (resourceController.foodStoredAmount + resourceController.woodStoredAmount + resourceController.goldStoredAmount + populationController.amountOfVillagers) /4;
 
-        favorGain = -2/(1 + Mathf.Exp(-prosperity/3)) - 2/2;
+        favorGain = -1/(1 + Mathf.Exp(-prosperity/3)) - 1/2 + constantFavor;
+    }
+
+    public void AddConstantFavor(float amount)
+    {
+        constantFavor += amount;
     }
 
     public void AddFavor(float amount)
