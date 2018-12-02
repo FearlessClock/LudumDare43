@@ -9,6 +9,9 @@ public class CameraMove : MonoBehaviour {
     private bool hasClicked;
     [HideInInspector]
     public bool CanMove;
+
+    public GameObject middle;
+    public float maxDistance;
 	// Use this for initialization
 	void Start () {
         CanMove = true;
@@ -20,8 +23,17 @@ public class CameraMove : MonoBehaviour {
         {
             if (hasClicked)
             {
-                this.transform.position += (lastMousePosition - Camera.main.ScreenToWorldPoint(Input.mousePosition)) * sensitivity;
-                lastMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Vector3 newPos = this.transform.position + (lastMousePosition - Camera.main.ScreenToWorldPoint(Input.mousePosition)) * sensitivity;
+                if (!(Vector3.Distance(middle.transform.position, newPos) > maxDistance))
+                {
+                    this.transform.position = newPos;
+                    lastMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                }
+                else
+                {
+                    this.transform.position = this.transform.position + (lastMousePosition - Camera.main.ScreenToWorldPoint(Input.mousePosition)) * 0.08f;
+                    lastMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                }
             }
             else
             {
