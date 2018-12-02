@@ -4,6 +4,9 @@ using TMPro;
 
 public class ResourceController : MonoBehaviour
 {
+
+    public static ResourceController instance;
+
     public int woodStoredAmount;
     public int goldStoredAmount;
     public int foodStoredAmount;
@@ -11,13 +14,20 @@ public class ResourceController : MonoBehaviour
     public TextMeshProUGUI woodUI;
     public TextMeshProUGUI goldUI;
     public TextMeshProUGUI foodUI;
-    // Use this for initialization
+
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+    }
+
     void Start()
     {
         UpdateResourceUI();
     }
 
-    // Update is called once per frame
     void Update()
     {
     }
