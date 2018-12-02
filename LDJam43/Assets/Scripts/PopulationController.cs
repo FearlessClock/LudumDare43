@@ -60,7 +60,9 @@ public class PopulationController : MonoBehaviour {
         {
             if(SpawnedVillagers.Count > 0)
             {
-                Destroy(SpawnedVillagers[UnityEngine.Random.Range(0, SpawnedVillagers.Count)]);
+                int index = UnityEngine.Random.Range(0, SpawnedVillagers.Count);
+                Destroy(SpawnedVillagers[index]);
+                SpawnedVillagers.RemoveAt(index);
             }
         }
         //TODO: Check if buildings stop working when removing villagers

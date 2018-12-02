@@ -371,7 +371,7 @@ MonoBehaviour:
   amountOfWorkingVillagers: 0
   amountOfVillagersUI: {fileID: 312142865}
   villager: {fileID: 1516372291763922, guid: efd641a9746c23449b6707604ebb304c, type: 2}
-  maxAmountOfVillagers: 100
+  maxAmountOfVisibleVillagers: 100
   timeTillNextBaby: 5
   buildingController: {fileID: 2118016908}
 --- !u!4 &289308757
