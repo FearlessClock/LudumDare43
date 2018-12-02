@@ -8,13 +8,13 @@ public class PopulationController : MonoBehaviour {
 
     public static PopulationController instance;
 
-    public int amountOfVillagers;
-    public int amountOfWorkingVillagers;
-    private int populationSize;
+    public int amountOfVillagers;               //Amount of villagers currently active
+    public int amountOfWorkingVillagers;        //Amount of villagers currently working
+    private int populationSize;                 //Currently available population.
     public TextMeshProUGUI amountOfVillagersUI;
-    private List<GameObject> villagers;
+    private List<GameObject> SpawnedVillagers;         //List of villagers instantiated
     public GameObject villager;
-    public int maxAmountOfVillagers;
+    public int maxAmountOfVisibleVillagers;     //The max amount of villagers that can be spawned
 
     [Header("Population creation")]
     public float timeTillNextBaby;
@@ -31,7 +31,7 @@ public class PopulationController : MonoBehaviour {
     }
 
     void Start () {
-        villagers = new List<GameObject>();
+        SpawnedVillagers = new List<GameObject>();
         populationSize = 1;
         babyTimer = timeTillNextBaby;
         UpdateUI();
@@ -49,18 +49,28 @@ public class PopulationController : MonoBehaviour {
         UpdateUI();
     }
 
+    /// <summary>
+    /// Kills off a certain percentage of villagers
+    /// </summary>
+    /// <param name="percentage"></param>
     public void KillPercentOfPopulation(int percentage)
     {
-        float amountToKill = Mathf.RoundToInt(villagers.Count * (percentage / 100));
+        int amountToKill = Mathf.CeilToInt(amountOfVillagers * (percentage / 100f));
         for (int i = 0; i < amountToKill; i++)
         {
-            DestroyImmediate(villagers[UnityEngine.Random.Range(0, villagers.Count)]);
+            if(SpawnedVillagers.Count > 0)
+            {
+                Destroy(SpawnedVillagers[UnityEngine.Random.Range(0, SpawnedVillagers.Count)]);
+            }
         }
+        //TODO: Check if buildings stop working when removing villagers
+        amountOfVillagers -= amountToKill;
+        UpdateUI();
     }
 
     public void UpdateUI()
     {
-        amountOfVillagersUI.text = villagers.Count + "/" + amountOfVillagers;
+        amountOfVillagersUI.text = SpawnedVillagers.Count + "/" + amountOfVillagers;
     }
 	
 	// Update is called once per frame
@@ -74,12 +84,12 @@ public class PopulationController : MonoBehaviour {
                 AddVillagerToCounter(1);
             }
         }
-        if (amountOfVillagers > villagers.Count && villagers.Count < maxAmountOfVillagers)
+        if (amountOfVillagers > SpawnedVillagers.Count && SpawnedVillagers.Count < maxAmountOfVisibleVillagers)
         {
             GameObject building = buildingController.GetRandomBuilding(eBuildingTypes.House);
             if(building != null)
             {
-                villagers.Add(Instantiate<GameObject>(villager, building.transform.position + Vector3.down, Quaternion.identity));
+                SpawnedVillagers.Add(Instantiate<GameObject>(villager, building.transform.position + Vector3.down, Quaternion.identity));
                 UpdateUI();
             }
         }

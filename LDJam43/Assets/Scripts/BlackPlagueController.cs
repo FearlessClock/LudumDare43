@@ -9,8 +9,10 @@ public class BlackPlagueController : MonoBehaviour {
     private ParticleSystem smokeParticleSys;
     private PopulationController popController;
     public float speed;
+    private bool killed;
 	// Use this for initialization
 	void Start () {
+        killed = false;
         direction = endPosition - startingPosition;
         direction.Normalize();
         this.transform.position = startingPosition;
@@ -22,13 +24,14 @@ public class BlackPlagueController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         this.transform.position += direction * speed * Time.deltaTime;
-        if(Vector3.Distance(this.transform.position, endPosition) < 1)
+        if(Vector3.Distance(this.transform.position, endPosition) < 1 && !killed)
         {
             speed = 0;
             smokeParticleSys.Play();
             Invoke("RemoveSpriteRenderer", 0.7f);
             Destroy(this.gameObject, 3);
-            popController.KillPercentOfPopulation(10);
+            popController.KillPercentOfPopulation(50);
+            killed = true;
         }
 	}
 
