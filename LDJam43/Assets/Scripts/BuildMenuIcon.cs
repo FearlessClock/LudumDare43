@@ -68,6 +68,7 @@ public class BuildMenuIcon : MonoBehaviour {
     {
         if (resourceController.HasEnoughResources(woodCost, goldCost, foodCost) && populationController.HasSufficientWorkers(villagerCost))
         {
+            Debug.Log("Play build sound");
             resourceController.UseResources(woodCost, goldCost, foodCost);
             populationController.ConscriptPopulation(villagerCost);
             heldBuilding = buildMenuController.SpawnSelectedBuilding(iconID);
@@ -78,6 +79,7 @@ public class BuildMenuIcon : MonoBehaviour {
         }
         else
         {
+            Debug.Log("Play error sound");
             cameraMove.CanMove = false;
             gameController.isBuilding = true;
         }
@@ -93,9 +95,13 @@ public class BuildMenuIcon : MonoBehaviour {
             pos.y = Mathf.RoundToInt(pos.y);
             if (boxCollider.IsTouchingLayers(buildingLayerMask))
             {
+                Debug.Log("play can't place sound");
                 Destroy(heldBuilding);
             }
-
+            else
+            {
+                Debug.Log("Play build place sound");
+            }
             heldBuilding.transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder = 5;
             heldBuilding.GetComponent<Building>().buildingPlaced = true;
             heldBuilding = null;

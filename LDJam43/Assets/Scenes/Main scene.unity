@@ -416,6 +416,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   favorLevel: 5
   favorGain: 0
+  constantFavor: 0
   favorTimeStep: 5
   resourceController: {fileID: 558808061}
   populationController: {fileID: 289308756}
@@ -427,7 +428,7 @@ MonoBehaviour:
     type: 2}
   spawnRange: 20
   currentGodAngerLevel: 0
-  randomChanceToDoSomething: 0.1
+  randomChanceToDoSomething: 0.06
   timeTillNextEvent: 10
 --- !u!4 &301891781
 Transform:

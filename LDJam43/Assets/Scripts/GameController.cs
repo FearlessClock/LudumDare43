@@ -44,6 +44,7 @@ public class GameController : MonoBehaviour {
         {
             // Kill of X% of the population
             // Play some sacrifice sound -> woula woula -> arggg
+            Debug.Log("Play sacrifice sound effect");
             PopulationController.instance.KillPercentOfPopulation(30);
             godController.instance.AddFavor(10); // Maybe % of max favor -> 35%
             godController.instance.AddConstantFavor(1);

@@ -85,6 +85,7 @@ public class godController : MonoBehaviour {
                     //TODO: Send great wind storm
                     break;
                 case eGodAngerLevel.furious:
+                    Debug.Log("Play black plague soundscape");
                     //Create the black plague
                     GameObject bpObj = Instantiate<GameObject>(blackDeathPrefab, this.transform);
                     BlackPlagueController bpController = bpObj.GetComponent<BlackPlagueController>();
