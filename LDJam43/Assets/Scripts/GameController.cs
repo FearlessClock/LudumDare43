@@ -16,15 +16,30 @@ public class GameController : MonoBehaviour {
         if (Input.GetMouseButtonDown(0) && !isBuilding)
         {
             mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Collider2D[] buildingS = Physics2D.OverlapCircleAll(mousePos, mouseClickRange);
+            Collider2D[] collisions = Physics2D.OverlapCircleAll(mousePos, mouseClickRange);
 
             Collider2D building = null;
 
-            foreach(Collider2D obj in buildingS)
+            foreach(Collider2D obj in collisions)
             {
-                if(obj.tag == "Temple")
+                switch (obj.tag)
                 {
-                    building = obj;
+                    case "Temple":
+                        building = obj;
+                        break;
+
+                    case "Wood":
+                        ResourceController.instance.AddResources(15, 0, 0);
+                        Destroy(obj.gameObject);
+                        break;
+
+                    case "Gold":
+                        ResourceController.instance.AddResources(0, 15, 0);
+                        Destroy(obj.gameObject);
+                        break;
+
+                    default:
+                        break;
                 }
             }
 
