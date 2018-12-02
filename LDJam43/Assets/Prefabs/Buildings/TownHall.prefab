@@ -130,6 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resourceController: {fileID: 0}
   buildingType: 1
+  buildingPlaced: 0
   townHallLevel: 0
 --- !u!212 &212667616686815528
 SpriteRenderer:
@@ -171,7 +172,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 52.5625, y: 39.125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
