@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum ECutscene { ZoomIn, IdleLightning, ZoomOut}
 
 public class CutSceneController : MonoBehaviour {
 
     public ECutscene currentCutScene;
+    private bool doCutsceneOnce = true;
+    public GameObject fadePanel;
 
     // Lightning scene
     public GameObject lightning;
@@ -29,17 +32,29 @@ public class CutSceneController : MonoBehaviour {
         }
     }
 	
-	// Update is called once per frame
 	void Update () {
         switch (currentCutScene)
         {
             case ECutscene.ZoomIn:
+                if (doCutsceneOnce)
+                {
+                    doCutsceneOnce = false;
+                }
                 break;
+
             case ECutscene.IdleLightning:
+                CheckEndOfDialog();
                 SpawnLightning();
                 break;
+
             case ECutscene.ZoomOut:
+                if(doCutsceneOnce)
+                {
+                    LoadScene("Main scene");
+                    doCutsceneOnce = false;
+                }
                 break;
+
             default:
                 break;
         }
@@ -60,5 +75,26 @@ public class CutSceneController : MonoBehaviour {
     public void GoToNextCutScene()
     {
         currentCutScene = (ECutscene)((int)currentCutScene + 1);
+        doCutsceneOnce = true;
+    }
+
+    public void CheckEndOfDialog()
+    {
+        if(TextBubbleController.instance.ReachedEndOfDialog())
+        {
+            GoToNextCutScene();
+        }
+    }
+
+    public void LoadScene(string sceneName)
+    {
+        StartCoroutine("GoToNextScene", sceneName);
+    }
+
+    IEnumerator GoToNextScene(string sceneName)
+    {
+        fadePanel.GetComponent<Animator>().SetTrigger("FadeIn");
+        yield return new WaitForSeconds(10f / 60f);
+        SceneManager.LoadScene(sceneName);
     }
 }

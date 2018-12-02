@@ -4,24 +4,30 @@ using TMPro;
 using UnityEngine;
 
 public class TextBubbleController : MonoBehaviour {
+
+    public static TextBubbleController instance;
+
     public string[] texts;
     public int currentText;
     private Coroutine typingCoroutine;
     public TextMeshProUGUI bubbleUI;
-	// Use this for initialization
-	void Start () {
+
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+    }
+
+    void Start () {
         StartCoroutine("TypeText");
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 
     public void NextTextBubble()
     {
         currentText++;
-        if(currentText < texts.Length)
+        if (currentText < texts.Length)
         {
             if(typingCoroutine != null)
             {
@@ -35,11 +41,24 @@ public class TextBubbleController : MonoBehaviour {
 
     public IEnumerator TypeText()
     {
+        int lastText = currentText;
         bubbleUI.text = "";
-        for (int i = 0; i < texts[currentText].Length; i++)
+        for (int i = 0; currentText < texts.Length && i < texts[currentText].Length; i++)
         {
-            bubbleUI.text += texts[currentText][i].ToString();
-            yield return 1;
+            if (currentText == lastText)
+            {
+                bubbleUI.text += texts[currentText][i].ToString();
+                yield return 1;
+            }
+            else
+            {
+                break;
+            }
         }
+    }
+
+    public bool ReachedEndOfDialog()
+    {
+        return currentText == texts.Length;
     }
 }
