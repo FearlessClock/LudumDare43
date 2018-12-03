@@ -704,7 +704,7 @@ Prefab:
     - target: {fileID: 114864530329560058, guid: 6012d4b330fd3604e8a5c48b9a751a9b,
         type: 2}
       propertyPath: texts.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 114111871468523656, guid: 6012d4b330fd3604e8a5c48b9a751a9b,
         type: 2}
@@ -948,7 +948,7 @@ Prefab:
     - target: {fileID: 114864530329560058, guid: 6012d4b330fd3604e8a5c48b9a751a9b,
         type: 2}
       propertyPath: texts.Array.data[4]
-      value: Build Farms for food, mines for gold, huts for more people and wood cutter
+      value: Build Farms for food, mines for gold, huts for more people and wood CUTTER
         dens for wood.
       objectReference: {fileID: 0}
     - target: {fileID: 114864530329560058, guid: 6012d4b330fd3604e8a5c48b9a751a9b,
@@ -970,6 +970,11 @@ Prefab:
         type: 2}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114864530329560058, guid: 6012d4b330fd3604e8a5c48b9a751a9b,
+        type: 2}
+      propertyPath: texts.Array.data[6]
+      value: Build the town hall as high as possible and reach the Gods !
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6012d4b330fd3604e8a5c48b9a751a9b, type: 2}
