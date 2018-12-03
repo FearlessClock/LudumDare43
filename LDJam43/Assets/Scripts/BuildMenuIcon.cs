@@ -59,6 +59,24 @@ public class BuildMenuIcon : MonoBehaviour {
             pos.z = 0;
             pos.x = Mathf.RoundToInt(pos.x);
             pos.y = Mathf.RoundToInt(pos.y);
+
+            if(pos.x < 2)
+            {
+                pos.x = 2;
+            }
+            if (pos.y < 2)
+            {
+                pos.y = 2;
+            }
+            if(pos.x > 30)
+            {
+                pos.x = 30;
+            }
+            if(pos.y > 17)
+            {
+                pos.y = 17;
+            }
+
             heldBuilding.transform.position = pos;
             if (boxCollider.IsTouchingLayers(buildingLayerMask))
             {
