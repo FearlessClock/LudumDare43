@@ -65,4 +65,12 @@ public class TextBubbleController : MonoBehaviour {
     {
         return currentText == texts.Length;
     }
+
+    public void EndGame()
+    {
+        if(ReachedEndOfDialog())
+        {
+            GameController.instance.LoadScene("MainMenu");
+        }
+    }
 }

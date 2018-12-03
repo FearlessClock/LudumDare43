@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
 
+    public static GameController instance;
+
     public Vector2 mousePos = Vector2.zero;
     public float mouseClickRange;
 
@@ -18,6 +20,14 @@ public class GameController : MonoBehaviour {
     public bool isBuilding;
     private AudioSource source;
     public AudioClip sacrificeClip;
+
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+    }
 
     private void Start()
     {

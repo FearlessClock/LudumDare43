@@ -36,6 +36,11 @@ public class TownHall : Building
             townHallLevel += 1;
             godController.instance.AddConstantFavor(townHallLevel * townHallLevelFavorLoseAmount);
             UpdateText();
+
+            if (townHallLevel == 10)
+            {
+                GameController.instance.LoadScene("EndGame");
+            }
         }
     }
 
