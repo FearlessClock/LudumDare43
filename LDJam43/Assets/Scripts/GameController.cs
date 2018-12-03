@@ -13,9 +13,18 @@ public class GameController : MonoBehaviour {
     public GameObject TownHallPanel;
     public GameObject fadePanel;
 
-    public bool isBuilding;
+    public float favorGainForSacrifice;
 
-	void Update () {
+    public bool isBuilding;
+    private AudioSource source;
+    public AudioClip sacrificeClip;
+
+    private void Start()
+    {
+        source = GetComponent<AudioSource>();
+    }
+
+    void Update () {
         if (Input.GetMouseButtonDown(0) && !isBuilding)
         {
             mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -70,17 +79,17 @@ public class GameController : MonoBehaviour {
         {
             // Kill of X% of the population
             // Play some sacrifice sound -> woula woula -> arggg
-            Debug.Log("Play sacrifice sound effect");
+            source.PlayOneShot(sacrificeClip);
             PopulationController.instance.KillPercentOfPopulation(30);
             godController.instance.AddFavor(10); // Maybe % of max favor -> 35%
-            godController.instance.AddConstantFavor(2);
-            Invoke("RemoveSacrificeBonus", 30); //Remove the constant bonus from the sacrifice
+            godController.instance.AddConstantFavor(favorGainForSacrifice);
+            Invoke("RemoveSacrificeBonus", 15); //Remove the constant bonus from the sacrifice
         }
     }
 
     public void RemoveSacrificeBonus()
     {
-        godController.instance.AddConstantFavor(-1);
+        godController.instance.AddConstantFavor(-favorGainForSacrifice);
     }
 
     public void ClosePanel(GameObject panel)

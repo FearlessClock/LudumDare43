@@ -11,6 +11,8 @@ public class TownHall : Building
     public TextMeshProUGUI levelText;
     public TextMeshProUGUI infoText;
 
+    public float townHallLevelFavorLoseAmount;
+
     private void Awake()
     {
         if(instance == null)
@@ -32,6 +34,7 @@ public class TownHall : Building
         {
             ResourceController.instance.UseResources((townHallLevel * 50), (townHallLevel * 50), (townHallLevel * 50));
             townHallLevel += 1;
+            godController.instance.AddConstantFavor(townHallLevel * townHallLevelFavorLoseAmount);
             UpdateText();
         }
     }

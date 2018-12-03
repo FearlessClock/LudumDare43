@@ -135,8 +135,6 @@ public class godController : MonoBehaviour {
         }
     }
 
-
-
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(Camera.main.transform.position, spawnRange);

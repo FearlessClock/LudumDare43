@@ -6,6 +6,6 @@ public class TempleController : Building {
 
     void Start () {
         buildingType = eBuildingTypes.Temple;
-        godController.instance.AddConstantFavor(0.5f);
+        godController.instance.AddConstantFavor(0.2f);
     }
 }

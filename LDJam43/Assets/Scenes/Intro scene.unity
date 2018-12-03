@@ -285,12 +285,12 @@ Prefab:
     - target: {fileID: 224249641525105234, guid: 9ec9938fb0bc31c4ba71978f8abb3310,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 2.43
       objectReference: {fileID: 0}
     - target: {fileID: 224249641525105234, guid: 9ec9938fb0bc31c4ba71978f8abb3310,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -1.69
       objectReference: {fileID: 0}
     - target: {fileID: 224249641525105234, guid: 9ec9938fb0bc31c4ba71978f8abb3310,
         type: 2}
@@ -992,7 +992,7 @@ Prefab:
     - target: {fileID: 114864530329560058, guid: 6012d4b330fd3604e8a5c48b9a751a9b,
         type: 2}
       propertyPath: texts.Array.data[9]
-      value: MAKE SURE IT STAYS HIGH TO AVOID THE GOD'S WRATH.
+      value: MAKE SURE IT STAYS HIGH TO AVOID THE GOD'S WRAITH.
       objectReference: {fileID: 0}
     - target: {fileID: 114864530329560058, guid: 6012d4b330fd3604e8a5c48b9a751a9b,
         type: 2}
