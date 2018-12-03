@@ -16,6 +16,14 @@ public class BigStormController : MonoBehaviour {
 
     public GameObject explosionPrefab;
 
+    public GameObject lightingPrefab;
+    public float moveDown;
+    public Transform lightingPositions;
+
+    public float maxTimeBetweenLightingStrikes;
+    public float minTimeBetweenLightingStrikes;
+    private float lightingStrikeTimer;
+
     // Use this for initialization
     void Start ()
     {
@@ -25,12 +33,27 @@ public class BigStormController : MonoBehaviour {
         this.transform.position = startingPosition;
         popController = PopulationController.instance;
         buildingController = BuildingController.instance;
+        SetRandomLightingStrikeTimer();
+    }
 
+    void SetRandomLightingStrikeTimer()
+    {
+        lightingStrikeTimer = UnityEngine.Random.Range(minTimeBetweenLightingStrikes, maxTimeBetweenLightingStrikes);
+    }
+
+    void SetOffRandomLighting()
+    {
+        Instantiate<GameObject>(lightingPrefab, lightingPositions.GetChild(UnityEngine.Random.Range(0, lightingPositions.childCount)).position + Vector3.down * moveDown, Quaternion.identity);
     }
 	
 	// Update is called once per frame
 	void Update () {
-
+        lightingStrikeTimer -= Time.deltaTime;
+        if(lightingStrikeTimer <= 0)
+        {
+            SetRandomLightingStrikeTimer();
+            SetOffRandomLighting();
+        }
         this.transform.position += direction * speed * Time.deltaTime;
         if (Vector3.Distance(this.transform.position, endPosition) < 1 && !killed)
         {
