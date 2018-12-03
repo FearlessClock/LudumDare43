@@ -12,6 +12,7 @@ public class godController : MonoBehaviour {
     public float favorLevel;
     public float favorGain;         //Favor gained/Lost from resources
     public float constantFavor;     //Favor gained from temples and sacrifices;
+    public float maxFavorDrain;
     //TODO: Make the sacrifice favor gain be temporary
     public float favorTimeStep;
     private float favorTimer;
@@ -22,6 +23,7 @@ public class godController : MonoBehaviour {
     public float notImpressedLevel;
     public float angryLevel;
     public float furiousLevel;
+    // Max favor = 100
     public GameObject blackDeathPrefab;
     public GameObject BigStormPrefab;
     public float spawnRange;
@@ -47,14 +49,11 @@ public class godController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        favorTimer -= Time.deltaTime;
-        if(favorTimer <= 0)
-        {
-            favorTimer = favorTimeStep;
-            CalculateFavorGain();
-            AddFavor(favorGain);
-        }
-		if(favorLevel <= furiousLevel)
+
+        CalculateFavorGain();
+        AddFavor(favorGain);
+
+        if (favorLevel <= furiousLevel)
         {
             currentGodAngerLevel = eGodAngerLevel.furious;
         }
@@ -114,8 +113,8 @@ public class godController : MonoBehaviour {
     private void CalculateFavorGain()
     {
         float prosperity = (resourceController.foodStoredAmount + resourceController.woodStoredAmount + resourceController.goldStoredAmount + populationController.amountOfVillagers) /4;
-
-        favorGain = -1/(1 + Mathf.Exp(-prosperity/3)) - 1/2 + constantFavor;    //TODO: Change the equation to a more constant raise
+        
+        favorGain = -(Mathf.Log(prosperity/15f + 1)/4f) * maxFavorDrain + constantFavor;    //TODO: Change the equation to a more constant raise
     }
 
     public void AddConstantFavor(float amount)
@@ -125,7 +124,15 @@ public class godController : MonoBehaviour {
 
     public void AddFavor(float amount)
     {
-        favorLevel += amount;
+        favorLevel += amount*Time.deltaTime;
+        if(favorLevel > 100)
+        {
+            favorLevel = 100;
+        }
+        else if(favorLevel < 0)
+        {
+            favorLevel = 0;
+        }
     }
 
 
