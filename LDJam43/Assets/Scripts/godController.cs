@@ -117,6 +117,10 @@ public class godController : MonoBehaviour {
         favorGain = -(Mathf.Log(prosperity/15f + 1)/4f) * maxFavorDrain + constantFavor;    //TODO: Change the equation to a more constant raise
     }
 
+    public void OnCreateTemple()
+    {
+        maxFavorDrain += 1;
+    }
     public void AddConstantFavor(float amount)
     {
         constantFavor += amount;
