@@ -16,9 +16,15 @@ public class BlackPlagueController : MonoBehaviour {
         direction = endPosition - startingPosition;
         direction.Normalize();
         this.transform.position = startingPosition;
-        smokeParticleSys = GetComponent<ParticleSystem>();
+        smokeParticleSys = transform.GetChild(0).GetComponent<ParticleSystem>();
         popController = FindObjectOfType<PopulationController>();
 
+        if(direction.x < 0)
+        {
+            Vector3 temp = transform.localScale;
+            temp.x = -temp.x;
+            transform.localScale = temp;
+        }
     }
 	
 	// Update is called once per frame
