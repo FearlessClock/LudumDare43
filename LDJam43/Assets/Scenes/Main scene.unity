@@ -4978,6 +4978,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114297439271486640, guid: 4e15db3f6c214c946802a781225e525e,
+        type: 2}
+      propertyPath: cursorTexture
+      value: 
+      objectReference: {fileID: 2800000, guid: b1a5d7949f776fe40906f411942055e9, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e15db3f6c214c946802a781225e525e, type: 2}
   m_IsPrefabAsset: 0

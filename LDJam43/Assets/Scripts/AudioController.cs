@@ -8,6 +8,8 @@ public class AudioController : MonoBehaviour {
     public bool soundMute;
     public AudioSource audioSource;
     public AudioMixer audioMixer;
+    public Texture2D cursorTexture;
+    public CursorMode cursorMode = CursorMode.Auto;
     private void Awake()
     {
         AudioController[] objs = GameObject.FindObjectsOfType<AudioController>();
@@ -18,6 +20,7 @@ public class AudioController : MonoBehaviour {
         }
 
         DontDestroyOnLoad(this.gameObject);
+        Cursor.SetCursor(cursorTexture, new Vector2(1, 1), cursorMode);
     }
     void Start () {
 

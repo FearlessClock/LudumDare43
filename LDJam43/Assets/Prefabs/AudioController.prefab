@@ -151,3 +151,5 @@ MonoBehaviour:
   soundMute: 0
   audioSource: {fileID: 82783247248151806}
   audioMixer: {fileID: 24100000, guid: 3f8c721f092b1724da2241fc3cc28189, type: 2}
+  cursorTexture: {fileID: 2800000, guid: 59b13e4c3a1027544b8c2d89c140dc84, type: 3}
+  cursorMode: 0
