@@ -6,6 +6,8 @@ using UnityEngine;
 public class TextBubbleController : MonoBehaviour {
 
     public static TextBubbleController instance;
+    private AudioSource source;
+    public AudioClip clickingClip;
 
     public string[] texts;
     public int currentText;
@@ -18,6 +20,7 @@ public class TextBubbleController : MonoBehaviour {
         {
             instance = this;
         }
+        source = GetComponent<AudioSource>();
     }
 
     void Start () {
@@ -48,6 +51,7 @@ public class TextBubbleController : MonoBehaviour {
             if (currentText == lastText)
             {
                 bubbleUI.text += texts[currentText][i].ToString();
+                source.PlayOneShot(clickingClip);
                 yield return 1;
             }
             else

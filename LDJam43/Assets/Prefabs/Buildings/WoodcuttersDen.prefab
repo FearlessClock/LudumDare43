@@ -131,7 +131,7 @@ MonoBehaviour:
   resourceController: {fileID: 0}
   buildingType: 4
   buildingPlaced: 0
-  woodGiveAmount: 1
+  woodGiveAmount: 3
   timeTillGive: 1
 --- !u!212 &212002789274172570
 SpriteRenderer:
