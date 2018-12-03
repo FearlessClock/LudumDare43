@@ -49,4 +49,9 @@ public class MainMenuController : MonoBehaviour {
         yield return new WaitForSeconds(10f/60f);
         SceneManager.LoadScene(sceneName);
     }
+
+    public void Exit()
+    {
+        Application.Quit();
+    }
 }
