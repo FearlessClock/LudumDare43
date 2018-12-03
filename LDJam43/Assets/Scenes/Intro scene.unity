@@ -704,7 +704,7 @@ Prefab:
     - target: {fileID: 114864530329560058, guid: 6012d4b330fd3604e8a5c48b9a751a9b,
         type: 2}
       propertyPath: texts.Array.size
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 114111871468523656, guid: 6012d4b330fd3604e8a5c48b9a751a9b,
         type: 2}
@@ -927,34 +927,35 @@ Prefab:
     - target: {fileID: 114864530329560058, guid: 6012d4b330fd3604e8a5c48b9a751a9b,
         type: 2}
       propertyPath: texts.Array.data[0]
-      value: Hello priest.
+      value: HELLO PRIEST.
       objectReference: {fileID: 0}
     - target: {fileID: 114864530329560058, guid: 6012d4b330fd3604e8a5c48b9a751a9b,
         type: 2}
       propertyPath: texts.Array.data[1]
-      value: We have noticed that the Gods are displeased.
+      value: WE HAVE NOTICED THAT THE GODS ARE DISPLEASED.
       objectReference: {fileID: 0}
     - target: {fileID: 114864530329560058, guid: 6012d4b330fd3604e8a5c48b9a751a9b,
         type: 2}
       propertyPath: texts.Array.data[2]
-      value: We need to do something about it or they will strike us down !
+      value: WE NEED TO DO SOMETHING ABOUT IT OR THEY WILL STRIKE US DOWN !
       objectReference: {fileID: 0}
     - target: {fileID: 114864530329560058, guid: 6012d4b330fd3604e8a5c48b9a751a9b,
         type: 2}
       propertyPath: texts.Array.data[3]
-      value: We need to build more temples and sacrifice some of our people to the
-        Gods to please them.
+      value: WE NEED TO BUILD MORE TEMPLES AND SACRIFICE SOME OF OUR PEOPLE TO THE
+        GODS TO PLEASE THEM.
       objectReference: {fileID: 0}
     - target: {fileID: 114864530329560058, guid: 6012d4b330fd3604e8a5c48b9a751a9b,
         type: 2}
       propertyPath: texts.Array.data[4]
-      value: Build Farms for food, mines for gold, huts for more people and wood CUTTER
-        dens for wood.
+      value: BUILD FARMS FOR FOOD, MINES FOR GOLD, HUTS FOR MORE PEOPLE AND WOOD CUTTER
+        DENS FOR WOOD.
       objectReference: {fileID: 0}
     - target: {fileID: 114864530329560058, guid: 6012d4b330fd3604e8a5c48b9a751a9b,
         type: 2}
       propertyPath: texts.Array.data[5]
-      value: Help the Aztec people thrive once more great priest.
+      value: DRAG AND DROP BUILDINGS TO BUILD THEM, JUST MAKE SURE YOU HAVE ENOUGH
+        RESOURCES.
       objectReference: {fileID: 0}
     - target: {fileID: 114111871468523656, guid: 6012d4b330fd3604e8a5c48b9a751a9b,
         type: 2}
@@ -981,6 +982,22 @@ Prefab:
         type: 2}
       propertyPath: texts.Array.data[7]
       value: WHATEVER THAT MEANS...
+      objectReference: {fileID: 0}
+    - target: {fileID: 114864530329560058, guid: 6012d4b330fd3604e8a5c48b9a751a9b,
+        type: 2}
+      propertyPath: texts.Array.data[8]
+      value: OH AND BY THE WAY, KEEP TRACK OF THE GOD'S FAVOR TOWARD YOU BY LOOKING
+        AT THE BAR AT THE BOTTEM OF THE SCREEN
+      objectReference: {fileID: 0}
+    - target: {fileID: 114864530329560058, guid: 6012d4b330fd3604e8a5c48b9a751a9b,
+        type: 2}
+      propertyPath: texts.Array.data[9]
+      value: MAKE SURE IT STAYS HIGH TO AVOID THE GOD'S WRATH.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114864530329560058, guid: 6012d4b330fd3604e8a5c48b9a751a9b,
+        type: 2}
+      propertyPath: texts.Array.data[10]
+      value: 'SACRIFICE '
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6012d4b330fd3604e8a5c48b9a751a9b, type: 2}
