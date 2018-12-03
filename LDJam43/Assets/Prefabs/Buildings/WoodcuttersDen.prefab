@@ -132,7 +132,7 @@ MonoBehaviour:
   buildingType: 4
   buildingPlaced: 0
   woodGiveAmount: 1
-  timeTillGive: 3
+  timeTillGive: 1
 --- !u!212 &212002789274172570
 SpriteRenderer:
   m_ObjectHideFlags: 1

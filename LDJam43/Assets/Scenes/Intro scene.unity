@@ -704,7 +704,7 @@ Prefab:
     - target: {fileID: 114864530329560058, guid: 6012d4b330fd3604e8a5c48b9a751a9b,
         type: 2}
       propertyPath: texts.Array.size
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 114111871468523656, guid: 6012d4b330fd3604e8a5c48b9a751a9b,
         type: 2}
@@ -937,7 +937,7 @@ Prefab:
     - target: {fileID: 114864530329560058, guid: 6012d4b330fd3604e8a5c48b9a751a9b,
         type: 2}
       propertyPath: texts.Array.data[2]
-      value: We will need to do something about it or they will strike us down !
+      value: We need to do something about it or they will strike us down !
       objectReference: {fileID: 0}
     - target: {fileID: 114864530329560058, guid: 6012d4b330fd3604e8a5c48b9a751a9b,
         type: 2}
@@ -974,7 +974,13 @@ Prefab:
     - target: {fileID: 114864530329560058, guid: 6012d4b330fd3604e8a5c48b9a751a9b,
         type: 2}
       propertyPath: texts.Array.data[6]
-      value: Build the town hall as high as possible and reach the Gods !
+      value: WE THINK INCREASING THE TOWN HALL'S LEVEL TO 10 SHOULD IMPRESS THE GOD'S
+        AND FINISH THE GAME.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114864530329560058, guid: 6012d4b330fd3604e8a5c48b9a751a9b,
+        type: 2}
+      propertyPath: texts.Array.data[7]
+      value: WHATEVER THAT MEANS...
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6012d4b330fd3604e8a5c48b9a751a9b, type: 2}

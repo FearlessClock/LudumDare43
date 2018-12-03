@@ -12,6 +12,7 @@ TagManager:
   - MoveEnvironment
   - Gold
   - Wood
+  - TownHall
   layers:
   - Default
   - TransparentFX

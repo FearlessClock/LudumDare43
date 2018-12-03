@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 61204521384065036}
   m_Layer: 8
   m_Name: TownHall
-  m_TagString: Building
+  m_TagString: TownHall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -132,6 +132,8 @@ MonoBehaviour:
   buildingType: 1
   buildingPlaced: 0
   townHallLevel: 0
+  levelText: {fileID: 0}
+  infoText: {fileID: 0}
 --- !u!212 &212667616686815528
 SpriteRenderer:
   m_ObjectHideFlags: 1

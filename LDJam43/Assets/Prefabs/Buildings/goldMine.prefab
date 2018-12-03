@@ -132,7 +132,7 @@ MonoBehaviour:
   buildingType: 3
   buildingPlaced: 0
   goldGiveAmount: 1
-  timeTillGive: 3
+  timeTillGive: 1
 --- !u!212 &212371593626042378
 SpriteRenderer:
   m_ObjectHideFlags: 1

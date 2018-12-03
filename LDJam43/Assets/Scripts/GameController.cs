@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour {
     public float mouseClickRange;
 
     public GameObject TemplePanel;
+    public GameObject TownHallPanel;
     public GameObject fadePanel;
 
     public bool isBuilding;
@@ -27,6 +28,10 @@ public class GameController : MonoBehaviour {
                 switch (obj.tag)
                 {
                     case "Temple":
+                        building = obj;
+                        break;
+
+                    case "TownHall":
                         building = obj;
                         break;
 
@@ -51,6 +56,10 @@ public class GameController : MonoBehaviour {
                 {
                     TemplePanel.SetActive(true);
                 }
+                if (building.transform.GetComponent<Building>().buildingType == eBuildingTypes.TownHall && building.transform.GetComponent<Building>().buildingPlaced)
+                {
+                    TownHallPanel.SetActive(true);
+                }
             }
         }
 	}
@@ -64,7 +73,7 @@ public class GameController : MonoBehaviour {
             Debug.Log("Play sacrifice sound effect");
             PopulationController.instance.KillPercentOfPopulation(30);
             godController.instance.AddFavor(10); // Maybe % of max favor -> 35%
-            godController.instance.AddConstantFavor(1);
+            godController.instance.AddConstantFavor(2);
             Invoke("RemoveSacrificeBonus", 30); //Remove the constant bonus from the sacrifice
         }
     }
