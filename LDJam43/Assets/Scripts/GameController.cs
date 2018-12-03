@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
 
@@ -9,6 +10,7 @@ public class GameController : MonoBehaviour {
     public float mouseClickRange;
 
     public GameObject TemplePanel;
+    public GameObject fadePanel;
 
     public bool isBuilding;
 
@@ -75,5 +77,17 @@ public class GameController : MonoBehaviour {
     public void ClosePanel(GameObject panel)
     {
         panel.SetActive(false);
+    }
+
+    public void LoadScene(string sceneName)
+    {
+        StartCoroutine("GoToNextScene", sceneName);
+    }
+
+    IEnumerator GoToNextScene(string sceneName)
+    {
+        fadePanel.GetComponent<Animator>().SetTrigger("FadeIn");
+        yield return new WaitForSeconds(10f / 60f);
+        SceneManager.LoadScene(sceneName);
     }
 }
