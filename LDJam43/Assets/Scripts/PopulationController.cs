@@ -21,6 +21,8 @@ public class PopulationController : MonoBehaviour {
     public float timeTillNextBaby;
     private float babyTimer;
 
+    public GameObject villagerBlood;
+
     public BuildingController buildingController;
 
     public void Awake()
@@ -63,6 +65,7 @@ public class PopulationController : MonoBehaviour {
             if(SpawnedVillagers.Count > 0)
             {
                 int index = UnityEngine.Random.Range(0, SpawnedVillagers.Count);
+                Instantiate(villagerBlood, SpawnedVillagers[index].transform.position, Quaternion.identity);
                 Destroy(SpawnedVillagers[index]);
                 SpawnedVillagers.RemoveAt(index);
             }

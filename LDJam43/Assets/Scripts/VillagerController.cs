@@ -167,5 +167,4 @@ public class VillagerController : MonoBehaviour {
             GetNewPosition();
         }
     }
-
 }

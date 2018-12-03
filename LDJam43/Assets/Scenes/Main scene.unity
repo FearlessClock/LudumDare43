@@ -1240,6 +1240,8 @@ MonoBehaviour:
   villager: {fileID: 1516372291763922, guid: efd641a9746c23449b6707604ebb304c, type: 2}
   maxAmountOfVisibleVillagers: 100
   timeTillNextBaby: 5
+  villagerBlood: {fileID: 1951374125358412, guid: e14f312e75082f142bee3487cf5d1e5e,
+    type: 2}
   buildingController: {fileID: 2118016908}
 --- !u!4 &289308757
 Transform:
@@ -7759,11 +7761,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4152977813867746, guid: 7974c6e7e3bfd1c42bbe9d764d4ee6ca, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 10.74
+      value: 17.77
       objectReference: {fileID: 0}
     - target: {fileID: 4152977813867746, guid: 7974c6e7e3bfd1c42bbe9d764d4ee6ca, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 6.05
+      value: 10.77
       objectReference: {fileID: 0}
     - target: {fileID: 4152977813867746, guid: 7974c6e7e3bfd1c42bbe9d764d4ee6ca, type: 2}
       propertyPath: m_LocalPosition.z
