@@ -253,7 +253,7 @@ MonoBehaviour:
   resourceController: {fileID: 558808061}
   populationController: {fileID: 289308756}
   gameController: {fileID: 1662875056}
-  woodCost: 5
+  woodCost: 10
   goldCost: 5
   foodCost: 10
   villagerCost: 0
@@ -6049,7 +6049,7 @@ MonoBehaviour:
   resourceController: {fileID: 558808061}
   populationController: {fileID: 289308756}
   gameController: {fileID: 1662875056}
-  woodCost: 10
+  woodCost: 20
   goldCost: 3
   foodCost: 10
   villagerCost: 0
@@ -7620,7 +7620,7 @@ Prefab:
     - target: {fileID: 224249641525105234, guid: 9ec9938fb0bc31c4ba71978f8abb3310,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 8.210022
+      value: 8.209961
       objectReference: {fileID: 0}
     - target: {fileID: 224249641525105234, guid: 9ec9938fb0bc31c4ba71978f8abb3310,
         type: 2}
@@ -10040,7 +10040,7 @@ MonoBehaviour:
   resourceController: {fileID: 558808061}
   populationController: {fileID: 289308756}
   gameController: {fileID: 1662875056}
-  woodCost: 10
+  woodCost: 15
   goldCost: 10
   foodCost: 3
   villagerCost: 0
