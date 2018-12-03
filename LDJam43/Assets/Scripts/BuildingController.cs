@@ -7,10 +7,21 @@ public enum eBuildingTypes { House, TownHall, Farm, Mine, WoodCutter, Temple }
 
 public class BuildingController : MonoBehaviour
 {
+
+    public static BuildingController instance;
+
     List<GameObject> houses         = new List<GameObject>();
     List<GameObject> farms          = new List<GameObject>();
     List<GameObject> mines          = new List<GameObject>();
     List<GameObject> woodCutters    = new List<GameObject>();
+
+    public void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
 
     public void AddBuilding(GameObject building, eBuildingTypes buildingType)
     {
@@ -31,6 +42,39 @@ public class BuildingController : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    public void RemoveBuilding(eBuildingTypes type, GameObject building)
+    {
+        switch (type)
+        {
+            case eBuildingTypes.House:
+                if (houses.Count > 0)
+                {
+                    houses.Remove(building);
+                }
+                break;
+            case eBuildingTypes.Farm:
+                if (farms.Count > 0)
+                {
+                    farms.Remove(building);
+                }
+                break;
+            case eBuildingTypes.Mine:
+                if (mines.Count > 0)
+                {
+                    mines.Remove(building);
+                }
+                break;
+            case eBuildingTypes.WoodCutter:
+                if (woodCutters.Count > 0)
+                {
+                    woodCutters.Remove(building);
+                }
+                break;
+        }
+        Destroy(building);
+
     }
 
     public GameObject GetRandomBuilding(eBuildingTypes buildingType)

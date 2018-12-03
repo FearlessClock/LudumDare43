@@ -984,6 +984,8 @@ MonoBehaviour:
   furiousLevel: 5
   blackDeathPrefab: {fileID: 1975348684440052, guid: dde3393d3f765234884a2b92d73a1261,
     type: 2}
+  BigStormPrefab: {fileID: 1037107465259160, guid: 26cfca146ba79cb459500f971bd7c9fc,
+    type: 2}
   spawnRange: 20
   currentGodAngerLevel: 0
   randomChanceToDoSomething: 0.06

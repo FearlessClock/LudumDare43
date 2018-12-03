@@ -23,6 +23,7 @@ public class godController : MonoBehaviour {
     public float angryLevel;
     public float furiousLevel;
     public GameObject blackDeathPrefab;
+    public GameObject BigStormPrefab;
     public float spawnRange;
 
     public eGodAngerLevel currentGodAngerLevel;
@@ -73,6 +74,8 @@ public class godController : MonoBehaviour {
         if(timer <= 0 && UnityEngine.Random.Range(0f, 1f) < randomChanceToDoSomething)
         {
             timer = timeTillNextEvent;
+            Vector2 cameraPos = Camera.main.transform.position;
+            Vector3 throughCenter = Vector3.zero;
             switch (currentGodAngerLevel)
             {
                 case eGodAngerLevel.Happy:
@@ -82,7 +85,14 @@ public class godController : MonoBehaviour {
                     //TODO: Set a building on fire
                     break;
                 case eGodAngerLevel.angry:
-                    //TODO: Send great wind storm
+
+                    GameObject storm = Instantiate<GameObject>(BigStormPrefab, this.transform);
+
+                    BigStormController bsController = storm.GetComponent<BigStormController>();
+                    //Start the black plague offscreen and get the point across from the screen
+                    bsController.startingPosition = cameraPos + (UnityEngine.Random.insideUnitCircle.normalized * spawnRange);
+                    throughCenter = (Camera.main.transform.position - bsController.startingPosition).normalized * spawnRange;
+                    bsController.endPosition = throughCenter;
                     break;
                 case eGodAngerLevel.furious:
                     
@@ -90,11 +100,10 @@ public class godController : MonoBehaviour {
                     GameObject bpObj = Instantiate<GameObject>(blackDeathPrefab, this.transform);
                     
                     BlackPlagueController bpController = bpObj.GetComponent<BlackPlagueController>();
-                    Vector2 cameraPos = Camera.main.transform.position;
                     //Start the black plague offscreen and get the point across from the screen
                     bpController.startingPosition = cameraPos + (UnityEngine.Random.insideUnitCircle.normalized * spawnRange);
-                    Vector3 toCenter = (Camera.main.transform.position - bpController.startingPosition).normalized * spawnRange; 
-                    bpController.endPosition = toCenter;
+                    throughCenter = (Camera.main.transform.position - bpController.startingPosition).normalized * spawnRange; 
+                    bpController.endPosition = throughCenter;
                     break;
                 default:
                     break;
