@@ -78,7 +78,7 @@ public class PopulationController : MonoBehaviour {
 
     public void UpdateUI()
     {
-        amountOfVillagersUI.text = SpawnedVillagers.Count + "/" + amountOfVillagers;
+        amountOfVillagersUI.text = Mathf.Max(SpawnedVillagers.Count, amountOfVillagers)+ "/" + populationSize;
     }
 	
 	// Update is called once per frame
