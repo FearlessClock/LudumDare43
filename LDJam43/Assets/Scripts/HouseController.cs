@@ -11,4 +11,9 @@ public class HouseController : Building
         popCounter = FindObjectOfType<PopulationController>();
         popCounter.IncreasePopulationSize(maxPeopleInTheHouse);
     }
+
+    private void OnDestroy()
+    {
+        popCounter.IncreasePopulationSize(-maxPeopleInTheHouse);
+    }
 }
