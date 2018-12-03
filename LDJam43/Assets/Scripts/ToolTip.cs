@@ -19,15 +19,15 @@ public class ToolTip : MonoBehaviour {
         switch (type)
         {
             case eBuildingTypes.House:
-                UpdateTextFields("House", "WOOD : 5\nGOLD : 5\nFOOD : 10", "Spanws people");
+                UpdateTextFields("House", "WOOD : 10\nGOLD : 5\nFOOD : 10", "Spanws people");
                 break;
 
             case eBuildingTypes.Farm:
-                UpdateTextFields("Farm", "WOOD : 10\nGOLD : 10\nFOOD : 3", "1 FOOD /s");
+                UpdateTextFields("Farm", "WOOD : 15\nGOLD : 10\nFOOD : 3", "1 FOOD /s");
                 break;
 
             case eBuildingTypes.Mine:
-                UpdateTextFields("Mines", "WOOD : 10\nGOLD : 3\nFOOD : 10", "1 GOLD /s");
+                UpdateTextFields("Mines", "WOOD : 20\nGOLD : 3\nFOOD : 10", "1 GOLD /s");
                 break;
 
             case eBuildingTypes.WoodCutter:
