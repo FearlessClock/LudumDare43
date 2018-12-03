@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4773854319767510}
   - component: {fileID: 212312288577645214}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 114696677532446722}
   - component: {fileID: 61403119641813058}
   - component: {fileID: 50268256447613298}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Farm
   m_TagString: Building
   m_Icon: {fileID: 0}

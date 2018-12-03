@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114811865793652310}
   - component: {fileID: 61614569829376350}
   - component: {fileID: 50514961949376318}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: goldMine
   m_TagString: Building
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4369131124426328}
   - component: {fileID: 212371593626042378}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
